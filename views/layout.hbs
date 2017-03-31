@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navmenu">
+            <li><a href="#">Junior developers Blog</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Ideas</a></li>
+            <li><a href="#">About Us</a></li>
+
+        </div>
+        <div class="navmenu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                {{#if user}}
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/user/details">Welcome({{user.email}})</a></li>
+                            <li><a href="/article/create">New Article</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                {{/if}}
+                {{#unless user}}
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/user/register">Register</a></li>
+                            <li><a href="/user/login">Login</a></li>
+                        </ul>
+                    </div>
+                {{/unless}}
+            </div>
+        </div>
+    </header>
+    {{#if error }}
+        <h2>{{error}}</h2>
+    {{/if}}
+    {{{body}}}
+</body>
+<footer>
+    <div class="container modal-footer">
+        <p>&copy; 2016 - Software University Foundation</p>
+    </div>
+</footer>
+</html>
