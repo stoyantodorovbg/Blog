@@ -17,7 +17,7 @@ module.exports = (app) => {
     app.get('/article/create', articleController.createGet);
     app.post('/article/create', articleController.createPost);
 
-    app.get('/article/details/:id', articleController.detailsGet);
+    app.get('/article/details/:id', articleController.detilsGet);
 
     app.get('/article/edit/:id', articleController.editGet);
     app.post('/article/edit/:id', articleController.editPost);
@@ -25,7 +25,7 @@ module.exports = (app) => {
     app.get('/article/delete/:id', articleController.deleteGet);
     app.post('/article/delete/:id', articleController.deletePost);
 
-    app.get('/aboutUs.hbs', homeController.aboutUs);
+    app.get('/aboutUs', homeController.aboutUs);
 
 };
 
