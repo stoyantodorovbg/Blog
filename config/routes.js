@@ -7,6 +7,8 @@ module.exports = (app) => {
 
     app.get('/aboutUs', homeController.aboutUs);
 
+    app.get('/blog', homeController.blog);
+
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
 

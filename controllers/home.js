@@ -3,14 +3,19 @@ const Article = require('mongoose').model('Article');
 
 module.exports = {
     index: (req, res) => {
-        Article.find({}).limit(6).populate('author').then(articles => {
-            res.render('home/index', {
+            res.render('home/index');
+    },
+
+    aboutUs: (req, res) => {
+        res.render('about/aboutUs');
+    },
+
+    blog: (req, res) => {
+         Article.find({}).limit(6).populate('author').then(articles => {
+            res.render('blog/blog', {
                 articles: articles
             });
         });
-    },
-    aboutUs: (req, res) => {
-        res.render('about/aboutUs');
     }
 
 };
