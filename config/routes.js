@@ -1,9 +1,13 @@
 const userController = require('./../controllers/user');
 const homeController = require('./../controllers/home');
 const articleController = require('./../controllers/article');
+const contactController = require('./../controllers/contact');
 
 module.exports = (app) => {
     app.get('/', homeController.index);
+
+    app.get('/ideas', contactController.ideas);
+    app.get('/contactUs', contactController.contactUs);
 
     app.get('/aboutUs', homeController.aboutUs);
 
