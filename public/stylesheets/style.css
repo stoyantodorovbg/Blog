@@ -13,9 +13,9 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-
-
-
+#blog{
+  background-image: url("6910256-red-background.jpg");
+}
 body{
   margin: 0;
   padding: 0;
