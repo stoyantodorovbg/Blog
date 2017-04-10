@@ -16,6 +16,10 @@ module.exports = {
                 articles: articles
             });
         });
+    },
+
+    welcome: (req, res) => {
+        res.render('intro/welcome');
     }
 
 };

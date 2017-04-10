@@ -29,7 +29,7 @@ module.exports = {
                 if (err) {
                     res.render('article/create', {error: err.message});
                 } else {
-                    res.redirect('/');
+                    res.redirect('/blog');
                 }
             });
         })
@@ -64,7 +64,7 @@ module.exports = {
         Article.findById(id).then(article => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if(!isAdmin && !req.user.isAuthor(article)){
-                    res.redirect('/');
+                    res.redirect('/blog');
                     return;
                 }
                 res.render('article/edit', article)
@@ -106,7 +106,7 @@ module.exports = {
         Article.findById(id).then(article => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if (!isAdmin && !req.user.isAuthor(article)){
-                    res.redirect('/');
+                    res.redirect('/blog');
                     return;
                 }
                 res.render('article/delete', article)
@@ -129,7 +129,7 @@ module.exports = {
                 let count = 1;
                 author.articles.splice(index, count)
                 author.save().then((user) => {
-                    res.redirect('/');
+                    res.redirect('/blog');
                 });
 
             }
