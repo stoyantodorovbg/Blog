@@ -1,3 +1,4 @@
+/*noinspection CssUnknownTarget*/
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
 /*!
  * bootswatch v3.3.7
@@ -15,6 +16,7 @@
 
 #blog{
   background-image: url("6910256-red-background.jpg");
+  
 }
 body{
   margin: 0;
@@ -274,6 +276,7 @@ li a.active{
 
 
 /*service area*/
+/*noinspection ALL*/
 .service{
   background: url(../img/pattern.jpg);
   background-repeat: repeat-y;
@@ -484,6 +487,8 @@ li a.active{
   padding-top: 15px;
   text-align: right;
 }
+
+/*noinspection ALL*/
 .contact-form input.submit-btn{
   width: 180px;
   height: 50px;
@@ -1242,9 +1247,13 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+
+/*noinspection CssUnknownTarget,CssUnknownTarget,CssUnknownTarget,CssUnknownTarget,CssUnknownTarget,CssUnknownTarget*/
 @font-face {
   font-family: 'Glyphicons Halflings';
+  /*noinspection CssUnknownTarget*/
   src: url('../fonts/glyphicons-halflings-regular.eot');
+  /*noinspection CssUnknownTarget,CssUnknownTarget,CssUnknownTarget,CssUnknownTarget,CssUnknownTarget*/
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
