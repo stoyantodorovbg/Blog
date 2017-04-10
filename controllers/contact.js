@@ -5,6 +5,6 @@ module.exports = {
         res.render('ideas/ideas');
     },
     contactUs: (req, res) => {
-        res.render('ideas/contactUs');
+        res.render('about/contactUs');
     }
 };
