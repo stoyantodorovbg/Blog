@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- map section -->
+<section class="api-map" id="contact">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 map" id="map"></div>
+        </div>
+    </div>
+</section><!-- end of map section -->
+
+<!-- contact section starts here -->
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-caption clearfix">
+                <div class="contact-heading text-center">
+                    <h2>contact us</h2>
+                </div>
+
+                <div class="col-md-6 col-md-offset-1 contact-form">
+                    <h3>leave us a message</h3>
+
+                    <form class="form" method="POST" action="/about/contactUs">
+                        <input class="name" type="text" name="name" placeholder="Name">
+                        <input class="email" type="email" name="email" placeholder="Email">
+                        <input class="phone" type="text" name="phone" placeholder="Phone No:">
+                        <textarea class="message" name="content" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                        <input class="submit-btn" type="submit">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!-- end of contact section -->
+</body>
+</html>

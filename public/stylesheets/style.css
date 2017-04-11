@@ -13,8 +13,19 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
+@font-face{
+  font-family: kingsmen;
+  src:url(Kingsmen_D.otf);
+}
+#blogtitle{
+  font-size: 30px;
+  font-family: kingsmen;
+}
+#blogcontent{
+  font-size: 20px;
+}
 #blog{
+  
   background-image: url("6910256-red-background.jpg");
   
 }
@@ -840,9 +851,6 @@ responsive area
 }
 
 
-<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
-
-<style>
 
 
 
@@ -851,7 +859,7 @@ responsive area
    list-style: none;
    margin: 0;
    padding: 0;
-   font: bold 10px 'Lato', sans-serif; /* use google custom font "Lato" */
+   font: bold 8px 'Lato', sans-serif; /* use google custom font "Lato" */
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
@@ -863,7 +871,7 @@ responsive area
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  min-width: 100px;
+  min-width: 20px;
   margin-right: 5px;
   margin-left: 5px;
   margin-bottom: 5px;
@@ -873,20 +881,20 @@ responsive area
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 35px; /* height of links */
+  height: 50px; /* height of links */
   padding: 0 10px;
   position: relative;
   overflow: hidden;
-  color: black;
+  color: ghostwhite;
   outline: none;
   border: 1px solid rgba(0,0,0,.1);
   border-bottom: 8px solid rgba(0,0,0,.1);
   opacity: 1;
   text-transform: uppercase;
-  font-size: 1.8em;
+  font-size: 1.5em;
   /* 18 * 0.0555 = 1px */
   letter-spacing: 0.0555em;
-  background: #ff7473; /* default background color */
+  background: #ff1a1a; /* default background color */
   text-decoration: none;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -962,8 +970,6 @@ responsive area
 }
 
 
-
-</style>
 
 
 body {
@@ -6979,7 +6985,6 @@ button.close {
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
-  line-break: auto;
   line-height: 1.42857143;
   text-align: left;
   text-align: start;
@@ -7097,7 +7102,6 @@ button.close {
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
-  line-break: auto;
   line-height: 1.42857143;
   text-align: left;
   text-align: start;
