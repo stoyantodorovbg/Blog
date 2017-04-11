@@ -5,8 +5,10 @@ const contactController = require('./../controllers/contact');
 const usersController = require('./../controllers/Users');
 
 module.exports = (app) => {
-    app.get('/', homeController.index);
+    app.get('/', homeController.welcome);
 
+    app.get('/home', homeController.index);
+    
     app.get('/ideas', contactController.ideas);
 
     app.get('/contactUs', contactController.createGet);

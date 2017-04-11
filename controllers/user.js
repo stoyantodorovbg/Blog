@@ -51,7 +51,7 @@ module.exports = {
                                         return;
                                     }
 
-                                    res.redirect('/');
+                                    res.redirect('/home');
                                 })
                             }
                         })
@@ -68,7 +68,7 @@ module.exports = {
                             return;
                         }
 
-                        res.redirect('/')
+                        res.redirect('/home')
                     })
                 })
             }
@@ -96,7 +96,7 @@ module.exports = {
                     return;
                 }
 
-                let returnUrl = '/';
+                let returnUrl = '/home';
                 if (req.session.returUrl){
                     returnUrl = req.session.returnUrl;
                     delete req.session.returnUrl;
@@ -109,6 +109,6 @@ module.exports = {
 
     logout: (req, res) => {
         req.logOut();
-        res.redirect('/');
+        res.redirect('/home');
     }
 };
