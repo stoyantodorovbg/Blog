@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-        function setCookie(cname, cvalue, exdays) {
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script>
+
+        function setCookie(cname,cvalue,exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toGMTString();
@@ -40,11 +45,92 @@
 
 </head>
 <body onload="checkCookie()">
-
-</body>
+<header>
+    <div class="navmenu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                </button>
+            </div>
+            {{#if user}}
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/user/details">Welcome({{user.email}})</a></li>
+                        <li><a href="/article/create">New Article</a></li>
+                        <li><a href="/user/logout">Logout</a></li>
+                    </ul>
+    <header>
+        <div class="navmenu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#unless user}}
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/user/register">Register</a></li>
+                        <li><a href="/user/login">Login</a></li>
+                    </ul>
+                </div>
+            {{/unless}}
+        </div>
+    </div>
+</header>
+{{#if error }}
+    <h2>{{error}}</h2>
+{{/if}}
+<body>
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="form-horizontal" method="post" action="/user/register">
+            <fieldset>
+                <legend>Register</legend>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="inputEmail">Email</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" required value={{email}} >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="inputFullName">Full Name</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="inputFullName" placeholder="Full Name" required name="fullName" value={{fullName}}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="inputPassword">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Confirm Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" required name="repeatedPassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<body>
 <footer>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
-    <a href="#" target="_blank" class="fa fa-twitter"></a>
+    <div class="container modal-footer">
+        <p>&copy; 2017 - Software University Foundation</p>
+    </div>
 </footer>
 </html>
