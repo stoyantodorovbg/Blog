@@ -120,14 +120,14 @@
                 </div>
             {{/if}}
             {{#unless user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
+                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
                         <li><a href="/ideas">Ideas</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
-                        <li><a href="/user/register">Register</a></li>
-                        <li><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/register">Register</a></li>
                     </ul>
                 </div>
             {{/unless}}
