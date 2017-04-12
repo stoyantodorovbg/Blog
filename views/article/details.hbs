@@ -20,16 +20,18 @@
                 </button>
             </div>
             {{#if user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
+              <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
                         <li><a href="/ideas">Ideas</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
-                        <li><a href="/user/details">Welcome({{user.email}})</a></li>
-                        <li><a href="/article/create">New Article</a></li>
-                        <li><a href="/user/logout">Logout</a></li>
+                        <li class="navbar-right"><a href="/user/logout">Logout</a></li>
+                        <li class="navbar-right"><a href="/article/create">New Article</a></li>
+                        <li class="navbar-right"><a href="/user/details">Welcome({{user.email}})</a></li>
                     </ul>
+                </div>
     <header>
         <div class="navmenu">
             <div class="container">
@@ -42,14 +44,15 @@
                 </div>
             {{/if}}
             {{#unless user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
+                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
                         <li><a href="/ideas">Ideas</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
-                        <li><a href="/user/register">Register</a></li>
-                        <li><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/register">Register</a></li>
                     </ul>
                 </div>
             {{/unless}}
@@ -82,7 +85,7 @@
                         <a class="btn btn-success btn-xs" href="/article/edit/{{article.id}}">Edit &raquo;</a>
                         <a class="btn btn-danger btn-xs" href="/article/delete/{{article.id}}">Delete &raquo;</a>
                         {{/if}}
-                        <a class="btn btn-default btn-xs" href="/">Back &raquo;</a>
+                        <a class="btn btn-default btn-xs" href="/blog">Back &raquo;</a>
                     </div>
                 </footer>
             </article>
