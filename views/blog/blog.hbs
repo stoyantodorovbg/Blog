@@ -18,6 +18,7 @@
                 </button>
             </div>
             {{#if user}}
+<<<<<<< .mine
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/blog">Junior developers Blog</a></li>
@@ -30,6 +31,24 @@
                 </ul>
             <header>
             <div class="navmenu">
+
+
+=======
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li class="navbar-right"><a href="/user/logout">Logout</a></li>
+                        <li class="navbar-right"><a href="/article/create">New Article</a></li>
+                        <li class="navbar-right"><a href="/user/details">Welcome({{user.email}})</a></li>
+                    </ul>
+                </div>
+    <header>
+        <div class="navmenu">
+>>>>>>> .theirs
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,63 +60,42 @@
             {{/if}}
             {{#unless user}}
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
                         <li><a href="/ideas">Ideas</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
-                        <li><a href="/user/register">Register</a></li>
-                        <li><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/register">Register</a></li>
                     </ul>
                 </div>
             {{/unless}}
         </div>
-        </div>
-
-        </header>
-            {{#if error }}
-                <h2>{{error}}</h2>
-            {{/if}}
-            <body>
 
 
-            <div id="blogcontent">
-                <div class="row">
-                    {{#each articles}}
-                        <div class="col-md-6">
-                            <article>
-                                <header id="blogtitle">
-                                    <h2>{{this.title}}</h2>
-                                </header>
+                    <small class="author">
+                        {{this.author.fullName}}
+                    </small>
 
-                                <p>{{this.content}}
-                                </p>
-
-                                <small class="author">
-                                    {{this.author.fullName}}
-                                </small>
-
-                                <footer>
-                                    <div class="pull-right">
-                                        <a class="btn btn-default btn-xs"
-                                           href="/article/details/{{this.id}}">Read more &raquo;</a>
-                                    </div>
-                                </footer>
-                            </article>
                         </div>
-                    {{/each}}
-                </div>
+                    </footer>
+                </article>
             </div>
-            </body>
-            <footer>
-                <div class="container modal-footer">
-                    <p>&copy; 2017 - Software University Foundation</p>
-                </div>
-                <!-- Add icon library -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {{/each}}
+    </div>
+</div>
+</body>
+<footer>
+    <div class="container modal-footer">
+        <p>&copy; 2017 - Software University Foundation</p>
+    </div>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                <!-- Add font awesome icons -->
-                <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
-                <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
-            </footer>
+    <!-- Add font awesome icons -->
+    <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
+    <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
+</footer>
 </html>
+
