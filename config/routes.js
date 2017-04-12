@@ -15,7 +15,8 @@ module.exports = (app) => {
     app.post('/about/contactUs', contactController.createPost);
     app.get('/sendMessage', contactController.sentGet);
 
-    app.get('/Users', usersController.Users);
+    app.get('/Users', usersController.usersGet);
+
 
     app.get('/aboutUs', homeController.aboutUs);
 
