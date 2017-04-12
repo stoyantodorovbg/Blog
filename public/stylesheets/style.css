@@ -12,10 +12,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-#home{
-  width: 40px;
-  height: 40px;
-}
 
 html {
   font-family: sans-serif;
@@ -6898,4 +6894,17 @@ legend {
 }
 .modal .close {
   color: #333333;
+}
+#next {
+    -webkit-animation: fadein 2s;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
