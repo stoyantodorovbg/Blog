@@ -3,8 +3,11 @@ const homeController = require('./../controllers/home');
 const articleController = require('./../controllers/article');
 const contactController = require('./../controllers/contact');
 const usersController = require('./../controllers/Users');
+const accountController = require('./../controllers/account');
 
 module.exports = (app) => {
+    app.get('/account/account', accountController.accountGet);
+
     app.get('/', homeController.welcome);
 
     app.get('/home', homeController.index);
@@ -16,6 +19,7 @@ module.exports = (app) => {
     app.get('/sendMessage', contactController.sentGet);
 
     app.get('/Users', usersController.Users);
+    app.get('/Users', usersController.usersList);
 
     app.get('/aboutUs', homeController.aboutUs);
 

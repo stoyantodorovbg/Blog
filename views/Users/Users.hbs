@@ -20,14 +20,14 @@
                 </button>
             </div>
             {{#if user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/user/details">Welcome({{user.email}})</a></li>
-                        <li><a href="/article/create">New Article</a></li>
-                        <li><a href="/user/logout">Logout</a></li>
-                    </ul>
-    <header>
-        <div class="navmenu">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/account/account">Welcome({{user.email}})</a></li>
+                    <li><a href="/article/create">New Article</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                </ul>
+            <header>
+            <div class="navmenu">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,31 +40,43 @@
             {{#unless user}}
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
                         <li><a href="/user/register">Register</a></li>
                         <li><a href="/user/login">Login</a></li>
                     </ul>
                 </div>
             {{/unless}}
         </div>
-    </div>
-</header>
-{{#if error }}
-    <h2>{{error}}</h2>
-{{/if}}
-<body>
+        </div>
+        </header>
+            {{#if error }}
+                <h2>{{error}}</h2>
+            {{/if}}
+            <body>
 
-<body>
+            <body>
 
-</body>
-<footer>
-    <div class="container modal-footer">
-        <p>&copy; 2017 - Software University Foundation</p>
-    </div>
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Add font awesome icons -->
-    <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
-    <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
-</footer>
+{{#each users}}
+
+    {{this.fullName}}
+
+    {{this.email}}
+
+{{/each}}
+            </body>
+            <footer>
+                <div class="container modal-footer">
+                    <p>&copy; 2017 - Software University Foundation</p>
+                </div>
+                <!-- Add icon library -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <!-- Add font awesome icons -->
+                <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
+            </footer>
 </html>

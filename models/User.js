@@ -3,16 +3,14 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const Role = require('./Role');
 const encryption = require('./../utilities/encryption');
 
-let userSchema = mongoose.Schema(
-    {
+let userSchema = mongoose.Schema({
         email: {type: String, required: true, unique: true},
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
         articles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Article'}],
         roles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}],
         salt: {type: String, required: true}
-    }
-);
+    });
 
 userSchema.method ({
     authenticate: function (password) {
@@ -42,7 +40,7 @@ userSchema.method ({
     }
 });
 
-let User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
 

@@ -5,9 +5,6 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-	
-
-   
 </head>
 <body>
 <header>
@@ -21,18 +18,18 @@
                 </button>
             </div>
             {{#if user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/blog">Junior developers Blog</a></li>
-                        <li><a href="/Users">Users</a></li>
-                        <li><a href="/ideas">Ideas</a></li>
-                        <li><a href="/aboutUs">About Us</a></li>
-                        <li><a href="/user/details">Welcome({{user.email}})</a></li>
-                        <li><a href="/article/create">New Article</a></li>
-                        <li><a href="/user/logout">Logout</a></li>
-                    </ul>
-    <header>
-        <div class="navmenu">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/blog">Junior developers Blog</a></li>
+                    <li><a href="/Users">Users</a></li>
+                    <li><a href="/ideas">Ideas</a></li>
+                    <li><a href="/aboutUs">About Us</a></li>
+                    <li><a href="/account/account">Welcome({{user.email}})</a></li>
+                    <li><a href="/article/create">New Article</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                </ul>
+            <header>
+            <div class="navmenu">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,50 +52,52 @@
                 </div>
             {{/unless}}
         </div>
-    </div>
-</header>
-{{#if error }}
-    <h2>{{error}}</h2>
-{{/if}}
-<body>
-<div id="blogcontent">
-  <div class="row">
-        {{#each articles}}
-            <div class="col-md-6">
-                <article>
-                    <header id="blogtitle">
-                        <h2>{{this.title}}</h2>
-                    </header>
+        </div>
 
-                    <p>{{this.content}}
-                    </p>
+        </header>
+            {{#if error }}
+                <h2>{{error}}</h2>
+            {{/if}}
+            <body>
 
-                    <small class="author">
-                        {{this.author.fullName}}
-                    </small>
 
-                    <footer>
-                        <div class="pull-right">
-                            <a class="btn btn-default btn-xs"
-                               href="/article/details/{{this.id}}">Read more &raquo;</a>
+            <div id="blogcontent">
+                <div class="row">
+                    {{#each articles}}
+                        <div class="col-md-6">
+                            <article>
+                                <header id="blogtitle">
+                                    <h2>{{this.title}}</h2>
+                                </header>
+
+                                <p>{{this.content}}
+                                </p>
+
+                                <small class="author">
+                                    {{this.author.fullName}}
+                                </small>
+
+                                <footer>
+                                    <div class="pull-right">
+                                        <a class="btn btn-default btn-xs"
+                                           href="/article/details/{{this.id}}">Read more &raquo;</a>
+                                    </div>
+                                </footer>
+                            </article>
                         </div>
-                    </footer>
-                </article>
+                    {{/each}}
+                </div>
             </div>
-        {{/each}}
-    </div>
-</div>
-</body>
-<footer>
-    <div class="container modal-footer">
-        <p>&copy; 2017 - Software University Foundation</p>
-    </div>
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            </body>
+            <footer>
+                <div class="container modal-footer">
+                    <p>&copy; 2017 - Software University Foundation</p>
+                </div>
+                <!-- Add icon library -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Add font awesome icons -->
-    <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
-    <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
-</footer>
+                <!-- Add font awesome icons -->
+                <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
+            </footer>
 </html>
-
