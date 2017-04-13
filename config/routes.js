@@ -16,7 +16,7 @@ module.exports = (app) => {
     app.get('/sendMessage', contactController.sentGet);
 
     app.get('/Users', usersController.usersGet);
-
+    app.get('/Users', usersController.usersList);
 
     app.get('/aboutUs', homeController.aboutUs);
 

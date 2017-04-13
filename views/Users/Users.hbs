@@ -1,0 +1,15 @@
+<div id="blogcontent">
+    <div class="row">
+        {{#each users}}
+            <div class="col-md-6">
+                <article>
+                    <header id="Users">
+                        <h2><a class="btn btn-default btn-xs"
+                               href="/article/details/{{this.id}}">Read more &raquo;</a></h2>
+                    </header>
+                </article>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
