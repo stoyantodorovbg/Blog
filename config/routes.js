@@ -3,10 +3,12 @@ const homeController = require('./../controllers/home');
 const articleController = require('./../controllers/article');
 const contactController = require('./../controllers/contact');
 const usersController = require('./../controllers/Users');
-const accountController = require('./../controllers/profile');
+const profileController = require('./../controllers/profile');
 
 module.exports = (app) => {
-    app.get('/profile/profile', accountController.profileGet);
+    app.get('/profile/profile', profileController.profileGet);
+    app.get('/editProfile', profileController.profileEditGet);
+    app.post('/profile/editProfile', profileController.profileEditPost);
 
     app.get('/', homeController.welcome);
 
