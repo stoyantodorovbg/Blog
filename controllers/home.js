@@ -20,7 +20,7 @@ module.exports = {
     },
 
     welcome: (req, res) => {
-        res.render('intro/welcome');
+        res.render('intro/welcome', {layout: false});
     }
 
 };
