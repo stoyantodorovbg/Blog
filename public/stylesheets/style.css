@@ -6908,3 +6908,7 @@ legend {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+#comments {
+  font-size: 11px;
+}
