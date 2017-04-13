@@ -43,6 +43,19 @@ module.exports = {
             articleParts.pathImage = imageArray;
         }
 
+        // Insert, save in base and set pdf file
+        let pdf = req.files.pdf;
+
+        if (pdf) {
+            let pdfname = pdf.name;
+            pdf.mv(`./public/files/${pdfname}`, err => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+
+            articleParts.pathPdf = `/files/${pdfname}`;
+        }
 
         let userId = req.user.id;
         articleParts.author = userId;

@@ -16,6 +16,10 @@
                     {{/each}}
                 {{/if}}
 
+                {{#if article.pathPdf}}
+                    <embed src="{{article.pathPdf}}" alt="Pdf File" width="800px" height="800px" />
+                {{/if}}
+
                 <p>
                     <small class="author">
                         {{article.author.fullName}}
