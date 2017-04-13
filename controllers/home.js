@@ -12,7 +12,7 @@ module.exports = {
     },
 
     blog: (req, res) => {
-         Article.find({}).limit(6).populate('author').then(articles => {
+         Article.find({}).populate('author').then(articles => {
             res.render('blog/blog', {
                 articles: articles
             });
@@ -20,7 +20,7 @@ module.exports = {
     },
 
     welcome: (req, res) => {
-        res.render('intro/welcome');
+        res.render('intro/welcome', {layout: false});
     }
 
 };
