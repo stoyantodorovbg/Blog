@@ -10,10 +10,17 @@
                     {{article.content}}
                 </p>
 
-                <small class="author">
-                    {{article.author.fullName}}
-                </small>
+                {{#if article.pathImage}}
+                    {{#each article.pathImage}}
+                        <img src="{{this}}" alt="Article Image" width="300px"/>
+                    {{/each}}
+                {{/if}}
 
+                <p>
+                    <small class="author">
+                        {{article.author.fullName}}
+                    </small>
+                </p>
                 <footer>
                     <div class="pull-right">
                         {{#if isUserAuthorized}}

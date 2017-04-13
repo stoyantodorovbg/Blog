@@ -21,6 +21,29 @@ module.exports = {
             res.render('article/create', {error: errorMsg});
             return;
         }
+
+        // Insert, save in base and set multiply image files
+        let images = req.files.images;
+
+        if (images) {
+            for (let image of images) {
+                let filename = image.name;
+                image.mv(`./public/pictures/${filename}`, err => {
+                    if (err) {
+                        console.log(err.message);
+                    }
+                });
+            }
+
+            let imageArray = [];
+            for (let image of images) {
+                imageArray.push(`/pictures/${image.name}`);
+            }
+
+            articleParts.pathImage = imageArray;
+        }
+
+
         let userId = req.user.id;
         articleParts.author = userId;
         Article.create(articleParts).then(article => {
