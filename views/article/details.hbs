@@ -26,6 +26,9 @@
                     </small>
                 </p>
                 <footer>
+                    <div class="pull-left">
+                        <p class="postDate">Posted on {{article.date}}</p>
+                    </div>
                     <div class="pull-right">
                         {{#if isUserAuthorized}}
                             <a class="btn btn-success btn-xs" href="/article/edit/{{article.id}}">Edit &raquo;</a>
@@ -38,6 +41,7 @@
         </div>
     </div>
 </div>
+
 <div id="comments">
 <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/default/skin.css" />
@@ -51,3 +55,9 @@
    }
    document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 </div>
+
+<script>
+    let date = $('.postDate').text();
+    let formattedDate = moment(date).format('LLLL');
+    $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
+</script>
