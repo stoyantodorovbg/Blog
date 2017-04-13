@@ -1,3 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' style="color: red;" href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+
+   
+</head>
+<body>
+<header>
+    <div class="navmenu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                </button>
+            </div>
+            {{#if user}}
+            <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li><a href="/profile/profile">Welcome({{user.email}})</a></li>
+                        <li><a href="/article/create">New Article</a></li>
+                        <li><a href="/user/logout">Logout</a></li>
+                    </ul>
+                </div>
+    <header>
+        <div class="navmenu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#unless user}}
+                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li class="navbar-right"><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/register">Register</a></li>
+                    </ul>
+                </div>
+            {{/unless}}
+        </div>
+    </div>
+</header>
+{{#if error }}
+    <h2>{{error}}</h2>
+{{/if}}
+<body>
 <div class="container body-content span=8 offset=2">
     <div class="well">
         <form class="form-horizontal" method="POST" action="/article/edit/{{id}}">

@@ -1,15 +1,76 @@
-<div id="blogcontent">
-    <div class="row">
-        {{#each users}}
-            <div class="col-md-6">
-                <article>
-                    <header id="Users">
-                        <h2><a class="btn btn-default btn-xs"
-                               href="/article/details/{{this.id}}">Read more &raquo;</a></h2>
-                    </header>
-                </article>
-            </div>
-        {{/each}}
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
 
+
+</head>
+<body>
+<header>
+    <div class="navmenu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                </button>
+            </div>
+            {{#if user}}
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/profile/profile">Welcome({{user.email}})</a></li>
+                    <li><a href="/article/create">New Article</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                </ul>
+            <header>
+            <div class="navmenu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#unless user}}
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li class="navbar-right"><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/register">Register</a></li>
+                    </ul>
+                </div>
+            {{/unless}}
+        </div>
+
+
+
+{{#each users}}
+
+    {{this.fullName}}
+
+    {{this.email}}
+
+{{/each}}
+            </body>
+            <footer>
+                <div class="container modal-footer">
+                    <p>&copy; 2017 - Software University Foundation</p>
+                </div>
+                <!-- Add icon library -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <!-- Add font awesome icons -->
+                <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
+            </footer>
+</html>
