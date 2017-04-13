@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='/stylesheets/styleProfile.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+<header>
+
+</header>
+
+<body>
+<br>
+{{#if error }}
+    <h2>{{error}}</h2>
+{{/if}}
+
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <br>
+                        {{#if user}}
+                            <h3>Welcome {{user.fullName}}</h3>
+                            <br>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="w3-container">
+                    <p>
+                        <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession
+
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email
+                    </p>
+                    <p>
+                        <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Tel
+                    </p>
+                    <p>
+                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Town, Country
+                    </p>
+                    <p>
+                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Age
+                    </p>
+                    <p>
+                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Sex
+                    </p>
+                    <hr>
+
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                    <p>Adobe Photoshop</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+                    </div>
+                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                    <p>English</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                    </div>
+                    <br>
+                    </form>
+                </div>
+                <br>
+            </div><br>
+
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+
+            <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+            </div>
+
+            <div class="w3-container w3-card-2 w3-white">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+            </div>
+            <br>
+
+            <div>
+                <button class="w3-padding-8"><i class="fa-fw w3-margin-right"></i><a href="/editProfile"><b>Edit Profile</b></a></button>
+            </div>
+
+            <!-- End Right Column -->
+        </div>
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+</div>
+</body>
+</html>
+
+

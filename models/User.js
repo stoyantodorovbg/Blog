@@ -3,16 +3,14 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const Role = require('./Role');
 const encryption = require('./../utilities/encryption');
 
-let userSchema = mongoose.Schema(
-    {
-        email: {type: String, required: true, unique: true},
-        passwordHash: {type: String, required: true},
-        fullName: {type: String, required: true},
-        articles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Article'}],
-        roles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}],
-        salt: {type: String, required: true}
-    }
-);
+let userSchema = mongoose.Schema({
+    email: {type: String, required: true, unique: true},
+    passwordHash: {type: String, required: true},
+    fullName: {type: String, required: true},
+    articles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Article'}],
+    roles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}],
+    salt: {type: String, required: true}
+});
 
 userSchema.method ({
     authenticate: function (password) {
@@ -31,18 +29,18 @@ userSchema.method ({
         return isAuthor;
     },
     isInRole: function (roleName) {
-       return Role.findOne({name: roleName}).then(role => {
+        return Role.findOne({name: roleName}).then(role => {
             if (!role){
                 return false;
             }
 
             let isInRole = this.roles.indexOf(role.id) !== -1;
             return isInRole;
-       })
+        })
     }
 });
 
-let User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
 
@@ -69,17 +67,14 @@ module.exports.seedAdmin = () => {
                 User.create(user).then(user => {
                     role.users.push(user.id);
                     role.save(err => {
-                       if (err){
-                           console.log(err.message);
-                       } else {
-                           console.log('Admin seeded successfully!')
-                       }
+                        if (err){
+                            console.log(err.message);
+                        } else {
+                            console.log('Admin seeded successfully!')
+                        }
                     });
                 })
             })
         }
     })
 };
-
-
-

@@ -1,64 +1,60 @@
 <html>
 <head>
-<style>
-/* Google Fonts */
-@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);
+    <style>
+        /* Google Fonts */
+        @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);
+        /* Global */
+        html{
+            min-height: 100%;
+            overflow: hidden;
+        }
+        body{
+            height: calc(10em);
+            padding: 1em;
+            color: rgba(255,255,255,.75);
+            font-family: 'Anonymous Pro', monospace;
+            background-color: rgb(25,25,25);
+        }
+        .line-1{
+            position: relative;
+            top: 50%;
+            width: 24em;
+            margin: 0 auto;
+            border-right: 2px solid rgba(255,255,255,.75);
+            font-size: 180%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-50%);
+        }
+        /* Animation */
+        .anim-typewriter{
+            animation: typewriter 3s steps(38) 1s 1 normal both,
+            blinkTextCursor 500ms steps(50) infinite normal;
+        }
+        @keyframes typewriter{
+            from{width: 0;}
+            to{width: 17em;}
+        }
+        @keyframes blinkTextCursor{
+            from{border-right-color: rgba(255,255,255,.75);}
+            to{border-right-color: transparent;}
+        }
+        img{
+            margin-left: 350px;
+            margin-top: 250px;
+            display: inline-block;
+            width: 500px;
+            height: 250px;
+            -moz-animation-delay: 5s;
+        }
+    </style>
 
-/* Global */
-html{
-  min-height: 100%;
-  overflow: hidden;
-}
-body{
-  height: calc(10em);
-  padding: 1em;
-  color: rgba(255,255,255,.75);
-  font-family: 'Anonymous Pro', monospace;  
-  background-color: rgb(25,25,25);  
-}
-.line-1{
-    position: relative;
-    top: 50%;  
-    width: 24em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-}
-
-/* Animation */
-.anim-typewriter{
-  animation: typewriter 3s steps(38) 1s 1 normal both,
-             blinkTextCursor 500ms steps(50) infinite normal;
-}
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 17em;}
-}
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
-}
-img{
-    margin-left: 350px;
-    margin-top: 250px;
-    display: inline-block;
-    width: 500px;
-    height: 250px;
-    -moz-animation-delay: 5s;
-
-
-}
-</style>
-
-<p class="line-1 anim-typewriter">By developers. For developers.</p>
+    <p class="line-1 anim-typewriter">By developers. For developers.</p>
 </head>
 <body>
-  <div id="next">
+<div id="next">
     <a href="/home"><img src="/../pictures/next1.png"></a>
-  </div>
+</div>
 </body>
 </html>
