@@ -12,7 +12,7 @@ module.exports = {
     },
 
     blog: (req, res) => {
-         Article.find({}).limit(6).populate('author').then(articles => {
+         Article.find({}).populate('author').then(articles => {
             res.render('blog/blog', {
                 articles: articles
             });
