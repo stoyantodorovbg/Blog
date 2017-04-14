@@ -7,8 +7,9 @@ const profileController = require('./../controllers/profile');
 
 module.exports = (app) => {
     app.get('/profile/profile', profileController.profileGet);
-    app.get('/editProfile', profileController.profileEditGet);
-    app.post('/profile/editProfile', profileController.profileEditPost);
+    app.get('/editProfile/:id', profileController.profileEditGet);
+    app.post('/profile/profile/:id', profileController.profileEditPost);
+
 
     app.get('/', homeController.welcome);
 

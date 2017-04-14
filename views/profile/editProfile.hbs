@@ -48,10 +48,10 @@
 
                 <div class="w3-container">
 
-                    <form class="form" method="POST" action="/profile/editProfile">
+                    <form class="form" method="POST" action="/profile/profile/{{id}}">
                         <p>
                             <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession
-                            <input class="name" type="text" name="profession" placeholder="Profession">
+                            <input class="profession" type="text" name="profession" placeholder="Profession">
 
                         </p>
                         <br>
@@ -108,7 +108,7 @@
                         <input class="name" type="number" name="name" placeholder="Percent of handling">
                         <br><br>
                         <div>
-                            <button class="w3-padding-8"><i class="fa-fw w3-margin-right"></i><a href="/editProfile{{id}}"><b>Enter this skill</b></a></button>
+                            <button class="w3-padding-8"><i class="fa-fw w3-margin-right"></i><b>Enter this skill</b></button>
                         </div>
                         <br><br>
                         <br><br>
@@ -140,7 +140,7 @@
         <br>
 
 
-        <button type="submit" href="/profile/editProfile/{{id}}" class="btn btn-success">Edit</button>
+        <button type="submit" class="btn btn-success">Edit</button>
 
 
         <!-- End Grid -->
