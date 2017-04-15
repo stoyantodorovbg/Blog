@@ -48,41 +48,33 @@
             height: 250px;
             -moz-animation-delay: 5s;
         }
-        #next {
-    -webkit-animation: fadein 2s;
-    -webkit-animation-delay: 4s;
-    animation-delay: 4s;
-}
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-.image_controls{
-    position: absolute;
-    left: 0;
-    top:5px;
-    opacity:0.0;
+@-webkit-keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
 
-
+  25%, 75% {
+    opacity: 0;
+  }
 }
+@keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
 
-.image_wrapper:hover .image_controls {
-    -webkit-transition: all 2s ease;
-    transition: all 2s ease;
-    display: block;
-    opacity:.9;
-
+  25%, 75% {
+    opacity: 0;
+  }
+}
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
 }
     </style>
-
     <p class="line-1 anim-typewriter">By developers. For developers.</p>
 </head>
 <body>
-<div id="next">
+<div class="flash">
     <a href="/home"><img src="/../pictures/next1.png"></a>
 </div>
 </body>
