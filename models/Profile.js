@@ -13,7 +13,6 @@ let profileSchema = mongoose.Schema({
     workExperience: {type: String, required: false},
     education: {type: String, required: false},
     user: {type: mongoose.Schema.Types.ObjectId, required: false, ref: 'User'},
-    id: { type: mongoose.Schema.Types.ObjectId},
     date: {type: Date, default: Date.now() }
 });
 
