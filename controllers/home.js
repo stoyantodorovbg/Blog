@@ -14,7 +14,8 @@ module.exports = {
     blog: (req, res) => {
          Article.find({}).populate('author').then(articles => {
             res.render('blog/blog', {
-                articles: articles
+                articles: articles,
+                layout: false
             });
         });
     },
