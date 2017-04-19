@@ -1,0 +1,43 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- map section -->
+<section class="api-map" id="listing">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 map" id="map"></div>
+        </div>
+    </div>
+</section><!-- end of map section -->
+
+<!-- contact section starts here -->
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-caption clearfix">
+                <div class="contact-heading text-center">
+                    <h2>Listing</h2>
+                </div>
+
+                <div class="col-md-6 col-md-offset-1 contact-form">
+                    <h3>Write your listing:</h3>
+
+                    <form class="form" method="POST" action="/about/ideasForm">
+                        <input class="author" type="text" name="author" id="content" placeholder="Name/Organization">
+                        <input class="email" type="email" name="email" id="email" placeholder="Email">
+                        <input class="phone" type="text" name="phone" id="phone" placeholder="Phone No:">
+                        <textarea class="message" name="content" id="content" cols="30" rows="10" placeholder="Content of the Listing"></textarea>
+                        <input class="submit-btn" type="submit">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!-- end of contact section -->
+</body>
