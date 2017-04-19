@@ -1,15 +1,19 @@
+const mongoose = require('mongoose');
 const Message = require('mongoose').model('Message');
 
 module.exports = {
-    ideas: (req, res) => {
-        res.render('ideas/ideas');
+    ideas: (req, res) => {//
+        Message.find({}).populate('id').then(messages => {
+            res.render('ideas/ideas', {
+                messages: messages
+            });
+        });
     },
     createGet: (req, res) => {
         res.render('about/contactUs');
     },
     createPost: (req, res) => {
-        let messageParts = req.body;
-
+        let messageParts = req.body
         let errorMsg = '';
 
        if (!messageParts.content) {
