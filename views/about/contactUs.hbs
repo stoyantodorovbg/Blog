@@ -1,43 +1,39 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<!-- map section -->
-<section class="api-map" id="contact">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 map" id="map"></div>
-        </div>
-    </div>
-</section><!-- end of map section -->
-
-<!-- contact section starts here -->
-<section class="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-caption clearfix">
-                <div class="contact-heading text-center">
-                    <h2>contact us</h2>
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="form-horizontal" method="post" action="/user/register">
+            <fieldset>
+                <legend>Contact Us</legend>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="inputName">Name</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" required value={{name}} >
+                    </div>
                 </div>
-
-                <div class="col-md-6 col-md-offset-1 contact-form">
-                    <h3>leave us a message</h3>
-
-                    <form class="form" method="POST" action="/about/contactUs">
-                        <input class="name" type="text" name="name" placeholder="Name">
-                        <input class="email" type="email" name="email" placeholder="Email">
-                        <input class="phone" type="text" name="phone" placeholder="Phone No:">
-                        <textarea class="message" name="content" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                        <input class="submit-btn" type="submit">
-                    </form>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="inputEmail">Email</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" required name="email" value={{email}}>
+                    </div>
                 </div>
-
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="inputTel">Telephone Number</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="inputTel" placeholder="Telephone Number" name="tel" required value={{tel}} >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="articleContent">Content</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" id="articleContent" rows="5" name="content" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
     </div>
-</section><!-- end of contact section -->
-</body>
+</div>

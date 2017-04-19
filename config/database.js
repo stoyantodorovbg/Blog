@@ -20,6 +20,7 @@ module.exports = (config) => {
     require('./../models/Article');
     require('./../models/Message');
     require('./../models/Profile');
+    require('./../models/Listing');
 };
 
 

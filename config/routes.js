@@ -4,6 +4,7 @@ const articleController = require('./../controllers/article');
 const contactController = require('./../controllers/contact');
 const usersController = require('./../controllers/Users');
 const profileController = require('./../controllers/profile');
+const listingController = require('./../controllers/listing');
 
 module.exports = (app) => {
     app.get('/profile/profile', profileController.profileGet);
@@ -12,17 +13,19 @@ module.exports = (app) => {
 
 
     app.get('/', homeController.welcome);
-
     app.get('/home', homeController.index);
-    
-    app.get('/ideas', contactController.ideas);
 
+    app.get('/ideas', listingController.listingsGet);
     app.get('/contactUs', contactController.createGet);
     app.post('/about/contactUs', contactController.createPost);
     app.get('/sendMessage', contactController.sentGet);
 
-    app.get('/Users', usersController.Users);
-    app.get('/Users', usersController.usersList);
+    app.get('/ideasForm', listingController.createGet);
+    app.post('/about/ideasForm', listingController.createPost);
+    app.get('/sentListing', listingController.sentGet);
+
+    app.get('/Users', usersController.usersGet);
+
 
     app.get('/aboutUs', homeController.aboutUs);
 
