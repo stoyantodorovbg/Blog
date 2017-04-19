@@ -24,8 +24,8 @@ module.exports = (app) => {
     app.post('/about/ideasForm', listingController.createPost);
     app.get('/sentListing', listingController.sentGet);
 
-    app.get('/Users', usersController.Users);
-    app.get('/Users', usersController.usersList);
+    app.get('/Users', usersController.usersGet);
+
 
     app.get('/aboutUs', homeController.aboutUs);
 
