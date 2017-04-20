@@ -19,9 +19,13 @@ module.exports = {
 
         if (!listingParts.content) {
             errorMsg = 'Invalid content!';
+        }else if (!listingParts.email) {
+            errorMsg = 'Invalid email!';
+        }else if (!listingParts.author) {
+            errorMsg = 'Invalid name/organization!';
         }
         if (errorMsg) {
-            res.render('about/contactUs', {error: errorMsg});
+            res.render('about/listingInput', {error: errorMsg});
             return;
         }
         let listings = [];
