@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Junior developers Blog</title>
+    <title>Junior developers</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
@@ -24,11 +24,11 @@
                         <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
-                        <li><a href="/ideas">Listings</a></li>
+                        <li><a href="/listings">Listings</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
                         <li><a href="/contactUs">Contact</a></li>
                         <li class="navbar-right"><a href="/user/logout">Logout</a></li>
-                        <li class="navbar-right"><a href="/profile/profile">Welcome({{user.email}})</a></li>
+                        <li class="navbar-right"><a href="/profile/profile">Welcome {{user.fullName}}!</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     <ul class="nav navbar-nav navbar-left" style="width: 100%">
                         <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
-                        <li><a href="/ideas">Listings</a></li>
+                        <li><a href="/listings">Listings</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
                         <li><a href="/contactUs">Contact</a></li>
                         <li class="navbar-right"><a href="/user/login">Login</a></li>
@@ -68,7 +68,7 @@
 </body>
 <footer>
     <div class="container modal-footer">
-        <p>&copy; 2017 - Software University Foundation</p>
+        <p>&copy; 2017 - Junior developers</p>
         <script>
             let mydate=new Date();
             let year=mydate.getYear();

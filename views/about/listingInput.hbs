@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <link rel="stylesheet" href='/stylesheets/listingForm.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+<!-- map section -->
+<section class="api-map" id="listing">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 map" id="map"></div>
+        </div>
+    </div>
+</section><!-- end of map section -->
+<div class="w3-container w3-teal">
+    <h2>Write your listing:</h2>
+</div>
+<br/>
+<form class="form" method="POST" action="/about/listingInput">
+    <label class="w3-text-teal"><b>Name/Organization</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="text" name="author" id="author">
+    <label class="w3-text-teal"><b>Email</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="email" name="email" id="email">
+    <label class="w3-text-teal"><b>Phone No:</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="text" name="phone" id="phone">
+    <label class="w3-text-teal"><b>Content of the Listing</b></label>
+    <textarea class="w3-input w3-border w3-light-grey" name="content" id="content" cols="30" rows="10"></textarea>
+    <br/>
+    <input class="w3-btn w3-blue-grey" type="submit">
+</form>
+
+</body>
+</html>

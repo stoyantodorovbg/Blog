@@ -4,23 +4,28 @@ const Listing = require('mongoose').model('Listing');
 module.exports = {
     listingsGet: (req, res) => {//
         Listing.find({}).populate('id').then(listings => {
-            res.render('ideas/ideas', {
+
+            res.render('listings/listings', {
                 listings: listings
             });
         });
     },
     createGet: (req, res) => {
-        res.render('about/ideasForm');
+        res.render('about/listingInput');
     },
     createPost: (req, res) => {
-        let listingParts = req.body
+        let listingParts = req.body;
         let errorMsg = '';
 
         if (!listingParts.content) {
             errorMsg = 'Invalid content!';
+        }else if (!listingParts.email) {
+            errorMsg = 'Invalid email!';
+        }else if (!listingParts.author) {
+            errorMsg = 'Invalid name/organization!';
         }
         if (errorMsg) {
-            res.render('about/contactUs', {error: errorMsg});
+            res.render('about/listingInput', {error: errorMsg});
             return;
         }
         let listings = [];
@@ -28,7 +33,7 @@ module.exports = {
             listings.push(listing.id);
             listing.save(err => {
                 if (err) {
-                    res.render('about/ideasForm', {error: err.message});
+                    res.render('about/listingInput', {error: err.message});
                 } else {
                     res.render('about/sentListing');
                 }

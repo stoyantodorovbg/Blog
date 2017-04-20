@@ -15,13 +15,13 @@ module.exports = (app) => {
     app.get('/', homeController.welcome);
     app.get('/home', homeController.index);
 
-    app.get('/ideas', listingController.listingsGet);
     app.get('/contactUs', contactController.createGet);
     app.post('/about/contactUs', contactController.createPost);
-    app.get('/sendMessage', contactController.sentGet);
+    app.get('/sentMessage', contactController.sentGet);
 
-    app.get('/ideasForm', listingController.createGet);
-    app.post('/about/ideasForm', listingController.createPost);
+    app.get('/listings', listingController.listingsGet);
+    app.get('/listingInput', listingController.createGet);
+    app.post('/about/listingInput', listingController.createPost);
     app.get('/sentListing', listingController.sentGet);
 
     app.get('/Users', usersController.usersGet);
