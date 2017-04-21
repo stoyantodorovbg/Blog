@@ -1,4 +1,4 @@
-const NewsStory = require('mongoose').model('NewsStory');
+const News = require('mongoose').model('News');
 
 module.exports = {
 
@@ -27,17 +27,8 @@ module.exports = {
    //        });
    //    });
    //},
-    detailsGet: (req, res) => {
-        //let id = req.params.id;
-
-            req.user.isInRole('Admin').then(isAdmin => {
-                let isUserAuthorized = isAdmin;
-
-                res.render('news/news',{isUserAuthorized: isUserAuthorized});
-            });
-    },
     newsGet: (req, res) => {
-        NewsStory.find({}).populate('id').then(news => {
+        News.find({}).then(news => {
             if (req.user) {
                 req.user.isInRole('Admin').then(isAdmin => {
                     let isUserAuthorized = isAdmin;
@@ -98,7 +89,7 @@ module.exports = {
        // }
 
         let news = [];
-        NewsStory.create(newsParts).then(newsStory => {
+        News.create(newsParts).then(newsStory => {
             news.push(newsStory.id);
             newsStory.save(err => {
                 if (err){
@@ -112,16 +103,16 @@ module.exports = {
     detailsGet: (req, res) => {
         let id = req.params.id;
 
-        NewsStory.findById(id).populate('author').then(newsStory => {
-            if(!req.user){
-                res.render('news/details', {anew: newsStory, isUserAuthorized: false});
-                return;
-            }
+        News.findById(id).then(newsStory => {
+         if(!req.user){
+              res.render('news/details', {newsStory: newsStory, isUserAuthorized: false});
+              return;
+         }
 
             req.user.isInRole('Admin').then(isAdmin => {
                 let isUserAuthorized = isAdmin;
 
-                res.render('news/details',{anew: newsStory, isUserAuthorized: isUserAuthorized});
+                res.render('news/details', {newsStory: newsStory, isUserAuthorized: isUserAuthorized});
             });
         });
     },
@@ -136,7 +127,7 @@ module.exports = {
             return;
         }
 
-        New.findById(id).then(newsStory => {
+        News.findById(id).then(newsStory => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if(!isAdmin){
                     res.redirect('/news');
@@ -163,7 +154,7 @@ module.exports = {
         if (errorMsg){
             res.render('news/edit', {error: errorMsg})
         } else {
-            New.update({_id: id}, {$set: {title: newArgs.title, content: newArgs.content}})
+            News.update({_id: id}, {$set: {title: newArgs.title, content: newArgs.content}})
                 .then(updateStatus => {
                     res.redirect(`/news/details/${id}`);
                 })
@@ -180,7 +171,7 @@ module.exports = {
             return;
         }
 
-        NewsStory.findById(id).then(newsStory => {
+        News.findById(id).then(newsStory => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if (!isAdmin){
                     res.redirect('/news');
@@ -192,7 +183,7 @@ module.exports = {
     },
     deletePost: (req, res) => {
         let id = req.params.id;
-        NewsStory.findOneAndRemove({_id: id});
+        News.findOneAndRemove({_id: id});
         res.redirect('/news');
     }
 

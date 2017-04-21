@@ -3,36 +3,31 @@
         <div class="col-md-12" id="blogcontent">
             <article>
                 <header id="blogtitle">
-                    <h2>{{article.title}}</h2>
+                    <h2>{{newsStory.title}}</h2>
                 </header>
-
                 <p>
-                    {{article.content}}
+                    {{newsStory.content}}
                 </p>
-
-                {{#if article.pathImage}}
-                    {{#each article.pathImage}}
+                {{#if newsStory.pathImage}}
+                    {{#each newsStory.pathImage}}
                         <img src="{{this}}" alt="Article Image" width="300px"/>
                     {{/each}}
                 {{/if}}
 
-                {{#if article.pathPdf}}
-                    <embed src="{{article.pathPdf}}" alt="Pdf File" width="800px" height="800px" />
-                {{/if}}
-
                 <p>
                     <small class="author">
-                        {{article.author.fullName}}
+                        Author:
+                        {{newsStory.author}}
                     </small>
                 </p>
                 <footer>
                     <div class="pull-left">
-                        <p class="postDate">Posted on {{article.date}}</p>
+                        <p>Posted on {{newsStory.date}}</p>
                     </div>
                     <div class="pull-right">
                         {{#if isUserAuthorized}}
-                            <a class="btn btn-success btn-xs" href="/article/edit/{{article.id}}">Edit &raquo;</a>
-                            <a class="btn btn-danger btn-xs" href="/article/delete/{{article.id}}">Delete &raquo;</a>
+                            <a class="btn btn-success btn-xs" href="/news/edit/{{newsStory.id}}">Edit &raquo;</a>
+                            <a class="btn btn-danger btn-xs" href="/news/delete/{{newsStory.id}}">Delete &raquo;</a>
                         {{/if}}
                         <a class="btn btn-default btn-xs" href="/blog">Back &raquo</a>
                     </div>
