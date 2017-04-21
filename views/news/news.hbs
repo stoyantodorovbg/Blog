@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+
+
+
+</head>
+<body>
+<header>
+    <div class="navmenu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                </button>
+            </div>
+        </div>
+        </header>
+            {{#if error }}
+                <h2>{{error}}</h2>
+            {{/if}}<div id="blogcontent">
+            <div class="row">
+                {{#each news}}
+                    <div class="col-md-6">
+                        <article>
+                            <header id="blogtitle">
+                                <h2>{{this.title}}</h2>
+                            </header>
+
+                            <p>{{this.content}}
+                            </p>
+
+                            <small class="author">
+                                {{this.author}}
+                            </small>
+
+                            <footer>
+                                <div class="pull-right">
+                                    <a class="btn btn-default btn-xs"
+                                       href="/news/details/{{this.id}}">Read more &raquo;</a>
+                                </div>
+                            </footer>
+                        </article>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+<div>
+    {{#if isUserAuthorized}}
+    <a href="news/create/{{user.id}}">Create a new<a>
+    {{/if}}
+</div>
+
+</body>
+
+</html>

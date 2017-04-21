@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <link rel="stylesheet" href='/stylesheets/listingForm.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+<!-- map section -->
+<section class="api-map" id="listing">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 map" id="map"></div>
+        </div>
+    </div>
+</section><!-- end of map section -->
+<div class="w3-container w3-teal">
+    <h2>Create a new:</h2>
+</div>
+<br/>
+<form class="form" method="POST" action="/news/create">
+    <label class="w3-text-teal"><b>Title</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="text" name="title" id="title">
+    <label class="w3-text-teal"><b>Content</b></label>
+    <textarea class="w3-input w3-border w3-light-grey" type="email" name="content" id="content"cols="30" rows="10"></textarea>
+    <label class="w3-text-teal"><b>Author</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="text" name="author" id="author">
+    <label class="w3-text-teal"><b>Source</b></label>
+    <input class="w3-input w3-border w3-light-grey" name="source" id="source">
+    <br/>
+    <div class="form-group">
+        <label class="w3-text-teal"><b>Add pictures</b></label>
+        <br/>
+        <div class="w3-input w3-border w3-light-grey">
+            <input class="form-control" id="image" type="file" name="images" multiple="multiple"/>
+        </div>
+    </div>
+    <br/><br/>
+    <input class="w3-btn w3-blue-grey" type="submit">
+</form>
+
+</body>
+</html>
