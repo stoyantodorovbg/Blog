@@ -20,6 +20,12 @@
                         {{newsStory.author}}
                     </small>
                 </p>
+                <p>
+                    <small class="author">
+                        Source:
+                        {{newsStory.source}}
+                    </small>
+                </p>
                 <footer>
                     <div class="pull-left">
                         <p>Posted on {{newsStory.date}}</p>
@@ -29,7 +35,7 @@
                             <a class="btn btn-success btn-xs" href="/news/edit/{{newsStory.id}}">Edit &raquo;</a>
                             <a class="btn btn-danger btn-xs" href="/news/delete/{{newsStory.id}}">Delete &raquo;</a>
                         {{/if}}
-                        <a class="btn btn-default btn-xs" href="/blog">Back &raquo</a>
+                        <a class="btn btn-default btn-xs" href="/news">Back &raquo</a>
                     </div>
                 </footer>
             </article>

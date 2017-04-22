@@ -154,7 +154,8 @@ module.exports = {
         if (errorMsg){
             res.render('news/edit', {error: errorMsg})
         } else {
-            News.update({_id: id}, {$set: {title: newArgs.title, content: newArgs.content}})
+            News.update({_id: id},
+                {$set: {title: newArgs.title, content: newArgs.content,author: newArgs.author, source: newArgs.source}})
                 .then(updateStatus => {
                     res.redirect(`/news/details/${id}`);
                 })

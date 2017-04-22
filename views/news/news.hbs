@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>SoftUni Blog</title>
+    <link rel="stylesheet" href='/stylesheets/listingForm.css'>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
@@ -52,7 +53,7 @@
         </div>
 <div>
     {{#if isUserAuthorized}}
-    <a href="news/create/{{user.id}}">Create a new<a>
+        <a href="news/create/{{user.id}}" class="w3-btn w3-blue-grey">Create a news story</a>
     {{/if}}
 </div>
 
