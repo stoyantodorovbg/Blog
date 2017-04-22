@@ -4,6 +4,7 @@
     <title>SoftUni Blog</title>
     <link rel="stylesheet" href='/stylesheets/listingForm.css'>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/news.css" type="text/css" />
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
 
@@ -23,41 +24,57 @@
             </div>
         </div>
 </header>
-            {{#if error }}
-                <h2>{{error}}</h2>
-            {{/if}}<div id="blogcontent">
-            <div class="row">
-                {{#each news}}
-                    <div class="col-md-6">
-                        <article>
-                            <header id="blogtitle">
-                                <h2>{{this.title}}</h2>
-                            </header>
 
-                            <p>{{this.content}}
-                            </p>
-
-                            <small class="author">
-                                {{this.author}}
-                            </small>
-                            <footer>
-                                <div class="pull-right">
-                                    <a class="btn btn-default btn-xs"
-                                       href="/news/details/{{this.id}}">Read more &raquo;</a>
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-<div>
+<div  class="w3-round-large">
     {{#if isUserAuthorized}}
         <a href="news/create/{{user.id}}" class="w3-btn w3-blue-grey">Create a news</a>
     {{/if}}
 </div>
+<br/>
+
+<div class="wrapper col3">
+    <div id="intro" class="w3-panel w3-round-large w3-teal">
+        <div class="fl_left" >
+            <h2>title</h2>
+            <p>content</p>
+        </div>
+        <div class="fl_right"><img src="images/demo/380x300.gif" alt="" /></div>
+        <br class="clear" />
+    </div>
+</div>
+<br/>
+
+<div class="wrapper col4">
+
+    <div id="services">
+
+        <div class="wrapper col4"  class="w3-panel w3-round-small w3-teal">
+            <div id="services"  class="w3-panel w3-round-large w3-teal">
+                <br class="clear" />
+                <ul>
+                    {{#each news}}
+                    <li>
+                        <p>
+                        <p class="readmore"><a href="/news/details/{{this.id}}">Continue Reading &raquo;</a></p>
+                        <div class="fl_left" class="w3-panel w3-round-large w3-teal"><img src="images/demo/100x180.gif" alt="" /></div>
+                        <div class="fl_right" class="w3-panel w3-round-large w3-teal">
+                            <h2>{{this.title}}</h2>
+                            <p>{{this.content}}</p>
+
+                        </div>
+                    </p>
+                    </li>
+
+                    {{/each}}
+                </ul>
+                <br class="clear" />
+                <br class="clear" />
+            </div>
+
+    </div>
+</div>
+
 
 
 </body>
-
 </html>
