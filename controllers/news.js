@@ -184,9 +184,12 @@ module.exports = {
     },
     deletePost: (req, res) => {
         let id = req.params.id;
-        News.findOneAndRemove({_id: id});
-        res.redirect('/news');
+        News.findOneAndRemove({_id: id}).then(newsStory => {
+            res.redirect('/news');
+        });
+
     }
+    
 
 };
 
