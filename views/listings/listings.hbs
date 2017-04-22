@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <link rel="stylesheet" href='/stylesheets/listings.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>SoftUni Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+<div id="ideas">
+    <div class="row">
+        {{#each listings}}
+            <div class="w3-panel w3-green w3-topbar w3-bottombar w3-border-amber" href="https://www.w3schools.com/w3css/4/w3.css">
+                <div class="col-md-6">
+                    <listings>
+                        <small class="date">
+                            <br><br>
+                            <p class="postDate">date of publication: {{this.date}}</p>
+                        </small>
+                        <small class="author">
+                            <h3>{{this.author}}</h3>
+                        </small>
+                        <p>{{this.content}}
+                        </p>
+
+                        <small class="email">
+                            email: {{this.email}}
+                        </small>
+                        <br>
+                        <small class="phone">
+                            phone: {{this.phone}}
+                        </small>
+
+                    </listings>
+                </div>
+            </div>
+            <script>
+                let date = $('.postDate').text();
+                let formattedDate = moment(date).format('LLLL');
+                $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
+            </script>
+        {{/each}}
+    </div>
+</div>
+<form method="get" action="/listingInput">
+    <button class="w3-button w3-block w3-red">Publish your listing here!</button>
+</form>
+<br>
+<form method="get" action="/contactUs" href="https://www.w3schools.com/w3css/4/w3.css">
+    <button class="w3-button w3-block w3-orange">contact us!</button>
+</form>

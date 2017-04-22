@@ -26,7 +26,7 @@
                         <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
-                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/">Ideas</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
                         <li class="navbar-right"><a href="/user/logout">Logout</a></li>
                         <li class="navbar-right"><a href="/article/create">New Article</a></li>
@@ -50,7 +50,7 @@
                         <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
-                        <li><a href="/ideas">Ideas</a></li>
+                        <li><a href="/listings">Ideas</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
                         <li class="navbar-right"><a href="/user/login">Login</a></li>
                         <li class="navbar-right"><a href="/user/register">Register</a></li>
@@ -93,12 +93,24 @@
 <footer>
     <div class="container modal-footer">
         <p>&copy; 2017 - Software University Foundation</p>
+        <script>
+            let mydate=new Date();
+            let year=mydate.getYear();
+            if (year < 1000)
+                year+=1900;
+            let day=mydate.getDay();
+            let month=mydate.getMonth();
+            let daym=mydate.getDate();
+            if (daym<10)
+                daym="0"+daym;
+            let dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+            let montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+            document.write("<font class='container modal-footer'><b>"+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"</b></font>")
+        </script>
+        <br> </br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
     </div>
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Add font awesome icons -->
-    <a href="https://www.facebook.com/SoftwareUniversity/" target="_blank" class="fa fa-facebook"></a>
-    <a href="https://twitter.com/softunibg" target="_blank" class="fa fa-twitter"></a>
 </footer>
 </html>

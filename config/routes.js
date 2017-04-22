@@ -4,6 +4,8 @@ const articleController = require('./../controllers/article');
 const contactController = require('./../controllers/contact');
 const usersController = require('./../controllers/Users');
 const profileController = require('./../controllers/profile');
+const listingController = require('./../controllers/listing');
+const newsController = require('./../controllers/news');
 
 module.exports = (app) => {
     app.get('/profile/profile', profileController.profileGet);
@@ -12,17 +14,19 @@ module.exports = (app) => {
 
 
     app.get('/', homeController.welcome);
-
     app.get('/home', homeController.index);
-    
-    app.get('/ideas', contactController.ideas);
 
     app.get('/contactUs', contactController.createGet);
     app.post('/about/contactUs', contactController.createPost);
-    app.get('/sendMessage', contactController.sentGet);
+    app.get('/sentMessage', contactController.sentGet);
 
-    app.get('/Users', usersController.Users);
-    app.get('/Users', usersController.usersList);
+    app.get('/listings', listingController.listingsGet);
+    app.get('/listingInput', listingController.createGet);
+    app.post('/about/listingInput', listingController.createPost);
+    app.get('/sentListing', listingController.sentGet);
+
+    app.get('/Users', usersController.usersGet);
+
 
     app.get('/aboutUs', homeController.aboutUs);
 
@@ -46,6 +50,19 @@ module.exports = (app) => {
 
     app.get('/article/delete/:id', articleController.deleteGet);
     app.post('/article/delete/:id', articleController.deletePost);
+
+    app.get('/news', newsController.newsGet);
+
+    app.get('/news/create/:id', newsController.createGet);
+    app.post('/news/create', newsController.createPost);
+
+    app.get('/news/details/:id', newsController.detailsGet);
+
+    app.get('/news/edit/:id', newsController.editGet);
+    app.post('/news/edit/:id', newsController.editPost);
+
+    app.get('/news/delete/:id', newsController.deleteGet);
+    app.post('/news/delete/:id', newsController.deletePost);
 
 
 };

@@ -1,15 +1,12 @@
+const mongoose = require('mongoose');
 const Message = require('mongoose').model('Message');
 
 module.exports = {
-    ideas: (req, res) => {
-        res.render('ideas/ideas');
-    },
     createGet: (req, res) => {
         res.render('about/contactUs');
     },
     createPost: (req, res) => {
-        let messageParts = req.body;
-
+        let messageParts = req.body
         let errorMsg = '';
 
        if (!messageParts.content) {
@@ -26,12 +23,12 @@ module.exports = {
                 if (err) {
                     res.render('about/ContactUs', {error: err.message});
                 } else {
-                    res.render('about/sendMessage');
+                    res.render('about/sentMessage');
                 }
             });
         })
     },
     sentGet: (req, res) => {
-        res.render('/sendMessage');
+        res.render('/sentMessage');
     }
 };

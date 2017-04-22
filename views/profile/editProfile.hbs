@@ -12,19 +12,13 @@
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
 </head>
-<body>
+<body class="w3-light-grey">
 <header>
-
 </header>
-
-<body>
 <br>
 {{#if error }}
     <h2>{{error}}</h2>
 {{/if}}
-
-<body class="w3-light-grey">
-
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
@@ -61,9 +55,14 @@
                         </p>
                         <br>
                         <p>
-                            <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Tel
+                            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>GitHub
+                            <input class="name" type="url" name="github" placeholder="GitHub">
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone
                             <br>
-                            <input class="name" type="tel" name="tel" placeholder="Tel">
+                            <input class="name" type="tel" name="tel" placeholder="Phone">
                         </p>
                         <br>
                         <p>
@@ -83,9 +82,9 @@
                         </p>
                         <br>
                         <p>
-                            <i class="fa-fw w3-margin-right w3-large w3-text-teal"></i>Sex
+                            <i class="fa-fw w3-margin-right w3-large w3-text-teal"></i>Gender
                             <br>
-                            <input class="name" type="radio" name="sex" value="man" placeholder="Sex"> man
+                            <input class="name" type="radio" name="sex" value="man" placeholder="Gender"> man
                             <br>
                             <input class="name" type="radio" name="sex" value="woman" placeholder="Sex"> woman
                         </p>
