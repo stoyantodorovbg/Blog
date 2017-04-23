@@ -37,6 +37,13 @@
     <br/>
     <input class="w3-btn w3-blue-grey w3-round-large" type="submit">
 </form>
+<br/>
+<div  class="w3-round-large">
+    {{#if isUserAuthorized}}
+        <a href="about/messages/{{user.id}}" class="w3-btn w3-blue-grey w3-round-large">Show all messages</a>
+    {{/if}}
+</div>
+<br/>
 
 </body>
 </html>

@@ -5,28 +5,6 @@ module.exports = {
     createGet: (req, res) => {
         res.render('news/create');
     },
-   //createGet: (req, res) => {
-   //    let id = req.params.id;
-
-   //    if (!req.isAuthenticated()){
-   //        let returnUrl = `/news/news/${id}`;
-   //        req.session.returnUrl = returnUrl;
-
-   //        res.redirect('/user/login');
-   //        return;
-   //    }
-   //    New.findById(id).populate.then(anew => {
-   //        if(!req.user){
-   //            res.render('news/create', {anew: anew, isUserAuthorized: false});
-   //            return;
-   //        }
-   //        req.user.isInRole('Admin').then(isAdmin => {
-   //            let isUserAuthorized = isAdmin;
-
-   //            res.render('news/create',{anew: anew, isUserAuthorized: isUserAuthorized});
-   //        });
-   //    });
-   //},
     newsGet: (req, res) => {
         News.find({}).then(news => {
             if (req.user) {
