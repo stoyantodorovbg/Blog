@@ -1,35 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Junior developers</title>
+    <link rel="stylesheet" href='/stylesheets/listingForm.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/news.css" type="text/css" />
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+
+
+
+</head>
+
 <div class="container body-content">
     <div class="row">
         <div class="col-md-12" id="blogcontent">
             <article>
-                <header id="blogtitle">
-                    <h2>{{newsStory.title}}</h2>
-                </header>
-                <p>
-                    {{newsStory.content}}
-                </p>
-                {{#if newsStory.pathImage}}
-                    {{#each newsStory.pathImage}}
-                        <img src="{{this}}" alt="Article Image" width="300px"/>
-                    {{/each}}
-                {{/if}}
+<div class="w3-container w3-teal w3-panel w3-round-large">
+    <h1>{{newsStory.title}}</h1>
+    <p>{{newsStory.content}}</p>
+    <br/>
+    <h4><i><b>publish by: {{newsStory.author}}</b></i></h4>
+    <h5><i><b>source: </b><a href="{{newsStory.source}}"></a>{{newsStory.source}}</i></h5>
+{{#if newsStory.pathImage}}
+        <div class="w3-container w3-teal w3-panel w3-round-large">
+            {{#each newsStory.pathImage}}
+                <img src="{{this}}" alt="Article Image" width="300px"/>
+            {{/each}}
+        </div>
+{{/if}}
+            </article>
+        </div>
+    </div>
+</div>
 
-                <p>
-                    <small class="author">
-                        Author:
-                        {{newsStory.author}}
-                    </small>
-                </p>
-                <p>
-                    <small class="author">
-                        Source:
-                        {{newsStory.source}}
-                    </small>
-                </p>
                 <footer>
-                    <div class="pull-left">
-                        <p>Posted on {{newsStory.date}}</p>
-                    </div>
+
+                    <br/>
                     <div class="pull-right">
                         {{#if isUserAuthorized}}
                             <a class="btn btn-success btn-xs" href="/news/edit/{{newsStory.id}}">Edit &raquo;</a>

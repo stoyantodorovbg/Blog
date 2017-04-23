@@ -55,7 +55,9 @@ module.exports = {
                 errorMsg = 'You should be Admin to publish news!';
             } else if (!newsParts.title) {
                 errorMsg = 'Invalid title!';
-            } else if (!newsParts.content) {
+            }else if (!newsParts.summary) {
+                errorMsg = 'Invalid summary!';
+            }else if (!newsParts.content) {
                 errorMsg = 'Invalid content!';
             }else if (!newsParts.author) {
                 errorMsg = 'Invalid author!';
@@ -66,27 +68,26 @@ module.exports = {
             return;
         }
 
-       // // Insert, save in base and set multiply image files
-//
-       // let images = req.files.images;
-//
-       // if (images) {
-       //     for (let image of images) {
-       //         let filename = image.name;
-       //         image.mv(`./public/pictures/${filename}`, err => {
-       //             if (err) {
-       //                 console.log(err.message);
-       //             }
-       //         });
-       //     }
-//
-       //     let imageArray = [];
-       //     for (let image of images) {
-       //         imageArray.push(`/pictures/${image.name}`);
-       //     }
-//
-       //     newParts.pathImage = imageArray;
-       // }
+      ///Insert, save in base and set multiply image file
+      //let images = req.files.images;
+
+      //if (images) {
+      //    for (let image of images) {//
+      //        let filename = image.name;
+      //        image.mv(`./public/pictures/${filename}`, err => {
+      //            if (err) {
+      //                console.log(err.message);
+      //            }
+      //        });
+      //    }
+
+      //    let imageArray = [];
+      //    for (let image of images) {
+      //        imageArray.push(`/pictures/${image.name}`);
+      //    }
+
+      //    newsParts.pathImage = imageArray;
+      //}
 
         let news = [];
         News.create(newsParts).then(newsStory => {
@@ -144,11 +145,13 @@ module.exports = {
 
         let errorMsg = '';
         if (!newArgs.title){
-            errorMsg = 'New title cannot be empty!';
+            errorMsg = 'News title cannot be empty!';
         } else if (!newArgs.content){
-            errorMsg = 'New content cannot be empty!';
+            errorMsg = 'News content cannot be empty!';
         } else if (!newArgs.author){
-            errorMsg = 'New author cannot be empty!';
+            errorMsg = 'News author cannot be empty!';
+        }else if (!newArgs.summary){
+            errorMsg = 'News summary cannot be empty!';
         }
 
         if (errorMsg){
