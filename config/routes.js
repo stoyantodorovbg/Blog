@@ -2,7 +2,7 @@ const userController = require('./../controllers/user');
 const homeController = require('./../controllers/home');
 const articleController = require('./../controllers/article');
 const contactController = require('./../controllers/contact');
-const usersController = require('./../controllers/Users');
+const UsersController = require('./../controllers/Users');
 const profileController = require('./../controllers/profile');
 const listingController = require('./../controllers/listing');
 
@@ -24,7 +24,7 @@ module.exports = (app) => {
     app.post('/about/listingInput', listingController.createPost);
     app.get('/sentListing', listingController.sentGet);
 
-    app.get('/Users', usersController.usersGet);
+    app.get('/Users', UsersController.usersGet);
 
 
     app.get('/aboutUs', homeController.aboutUs);
