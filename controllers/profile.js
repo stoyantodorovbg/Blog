@@ -4,13 +4,18 @@ const Profile = require('mongoose').model('Profile')
 
 module.exports = {
     profileGet: (req, res) => {
-        res.render('profile/profile', req.user);
+        let user = req.params.user;
+
+        Profile.findById(user).populate('user').then(profile => {
+                res.render('profile/profile', req.user);            
+        });
     },
     profileEditGet: (req, res) => {
+        let id = req.params.id;
 
-        res.render('profile/editProfile', req.user);
-
-
+        Profile.findById(id).populate('user').then(profile => {
+                res.render('profile/editProfile', req.user);            
+        });
     },
     profileEditPost: (req, res) => {
         let profileParts = req.body;
