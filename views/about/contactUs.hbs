@@ -36,14 +36,10 @@
     <textarea class="w3-input w3-border w3-light-grey w3-round-large" name="content" id="content" cols="30" rows="10"></textarea>
     <br/>
     <input class="w3-btn w3-blue-grey w3-round-large" type="submit">
-</form>
-<br/>
-<div  class="w3-round-large">
     {{#if isUserAuthorized}}
-        <a href="about/messages/{{user.id}}" class="w3-btn w3-blue-grey w3-round-large">Show all messages</a>
-    {{/if}}
-</div>
-<br/>
+            <a href="about/messages/{{user.id}}" class="w3-btn w3-blue-grey w3-round-large">Show all messages</a>
+        {{/if}}
+</form>
 
 </body>
 </html>
