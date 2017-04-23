@@ -21,6 +21,7 @@ module.exports = (config) => {
     require('./../models/Message');
     require('./../models/Profile');
     require('./../models/Listing');
+    require('./../models/News');
 };
 
 

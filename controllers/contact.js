@@ -2,15 +2,18 @@ const mongoose = require('mongoose');
 const Message = require('mongoose').model('Message');
 
 module.exports = {
-    ideas: (req, res) => {//
-        Message.find({}).populate('id').then(messages => {
-            res.render('ideas/ideas', {
-                messages: messages
-            });
-        });
-    },
     createGet: (req, res) => {
-        res.render('about/contactUs');
+            if (req.user) {
+                req.user.isInRole('Admin').then(isAdmin => {
+                    let isUserAuthorized = isAdmin;
+
+                    res.render('about/contactUs', {
+                        isUserAuthorized: isUserAuthorized
+                    });
+                });
+            } else{
+                res.render('about/contactUs',req.user);
+            }
     },
     createPost: (req, res) => {
         let messageParts = req.body
@@ -30,12 +33,31 @@ module.exports = {
                 if (err) {
                     res.render('about/ContactUs', {error: err.message});
                 } else {
-                    res.render('about/sendMessage');
+                    res.render('about/sentMessage');
                 }
             });
         })
     },
     sentGet: (req, res) => {
-        res.render('/sendMessage');
-    }
+        res.render('/sentMessage');
+    },
+    messagesGet: (req, res) => {
+            if(!req.isAuthenticated()){
+                let returnUrl = `/about/contactUs/${id}`;
+                req.session.returUrl = returnUrl;
+
+                res.redirect('/user/login');
+                return;
+            }
+
+        Message.find({}).then(messages => {
+            req.user.isInRole('Admin').then(isAdmin => {
+                if(!isAdmin){
+                    res.redirect('/contactUs');
+                    return;
+                }
+                res.render('about/messages', {messages: messages})
+            });
+        });
+    },
 };

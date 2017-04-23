@@ -12,7 +12,88 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* ------------------------------HOME CSS--------------------------- */
+ .btn1 {
+  background-color: Transparent;
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border: 5px;
+  border-radius: 12px;
+  font-family: sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: flex;
+  padding: 30px;
+  margin: 35px;
+}
+.btn2 {
+  background-color: Transparent;
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border: 5px;
+  border-radius: 12px;
+  font-family: sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: flex;
+  padding: 30px;
+  margin: 35px;
+}
 
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+#indexBG {
+      background-size: cover;
+}
+#blogbtn {
+    color: ghostwhite;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+#usersbtn {
+    color: ghostwhite;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+#listingsbtn {
+    color: ghostwhite;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+#aboutbtn {
+    color: ghostwhite;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+#contactbtn {
+    color: ghostwhite;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+#newsbtn {
+    color: ghostwhite;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+/* --------------------------END OF HOME CSS------------------------ */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <link rel="stylesheet" href='/stylesheets/listingForm.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>Junior developers</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+<!-- map section -->
+<section class="api-map" id="listing">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 map" id="map"></div>
+        </div>
+    </div>
+</section><!-- end of map section -->
+<div class="w3-container w3-teal w3-round-large">
+    <h2>Create a news:</h2>
+</div>
+<br/>
+<form class="form" method="POST" action="/news/create">
+    <label class="w3-text-teal "><b>Title</b></label>
+    <input class="w3-input w3-border w3-light-grey w3-round-large" type="text" name="title" id="title">
+    <label class="w3-text-teal"><b>Summary</b></label>
+    <input class="w3-input w3-border w3-light-grey w3-round-large" type="text" name="summary" id="summary">
+    <label class="w3-text-teal"><b>Content</b></label>
+    <textarea class="w3-input w3-border w3-light-grey w3-round-large" type="email" name="content" id="content"cols="30" rows="10"></textarea>
+    <label class="w3-text-teal"><b>Published by</b></label>
+    <input class="w3-input w3-border w3-light-grey w3-round-large" type="text" name="author" id="author">
+    <label class="w3-text-teal"><b>Source</b></label>
+    <input class="w3-input w3-border w3-light-grey w3-round-large" name="source" id="source">
+    <br/>
+    <div class="form-group w3-round-large">
+        <label class="w3-text-teal w3-round-large"><b>Add pictures</b></label>
+        <br/>
+        <div class="w3-input w3-border w3-light-grey w3-round-large">
+            <input class="form-control w3-round-large" id="image" type="file" name="images" multiple="multiple"/>
+        </div>
+    </div>
+    <br/><br/>
+    <input class="w3-btn w3-blue-grey w3-round-large" type="submit">
+</form>
+
+</body>
+</html>
