@@ -6,7 +6,7 @@
     <style>
         html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     </style>
-    <title>SoftUni Blog</title>
+    <title>Junior developers listings</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
@@ -14,7 +14,7 @@
 <div id="ideas">
     <div class="row">
         {{#each listings}}
-            <div class="w3-panel w3-green w3-topbar w3-bottombar w3-border-amber" href="https://www.w3schools.com/w3css/4/w3.css">
+            <div class="w3-panel w3-green w3-topbar w3-bottombar w3-border-amber w3-round-large">
                 <div class="col-md-6">
                     <listings>
                         <small class="date">
@@ -46,10 +46,11 @@
         {{/each}}
     </div>
 </div>
-<form method="get" action="/listingInput">
-    <button class="w3-button w3-block w3-red">Publish your listing here!</button>
-</form>
+<div  class="w3-round-large">
+        <a href="/listingInput" class="w3-btn w3-red w3-round-large">Publish your listing here</a>
+</div>
 <br>
-<form method="get" action="/contactUs" href="https://www.w3schools.com/w3css/4/w3.css">
-    <button class="w3-button w3-block w3-orange">contact us!</button>
-</form>
+<div  class="w3-round-large">
+    <a href="/contactUs" class="w3-btn w3-orange w3-round-large">Contact us!</a>
+</div>
+
