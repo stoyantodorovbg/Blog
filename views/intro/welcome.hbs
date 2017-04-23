@@ -48,34 +48,36 @@
             height: 250px;
             -moz-animation-delay: 5s;
         }
-@-webkit-keyframes flash {
-  from, 50%, to {
-    opacity: 1;
-  }
+        @-webkit-keyframes flash {
+            from, 50%, to {
+            opacity: 1;
+        }
 
-  25%, 75% {
-    opacity: 0;
-  }
-}
-@keyframes flash {
-  from, 50%, to {
-    opacity: 1;
-  }
+        25%, 75% {
+            opacity: 0;
+            }
+        }
+        @keyframes flash {
+            from, 50%, to {
+            opacity: 1;
+        }
 
-  25%, 75% {
-    opacity: 0;
-  }
+        25%, 75% {
+            opacity: 0;
+        }
 }
 .flash {
   -webkit-animation-name: flash;
   animation-name: flash;
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
 }
     </style>
     <p class="line-1 anim-typewriter">By developers. For developers.</p>
 </head>
 <body>
 <div class="flash">
-    <a href="/home"><img src="/../pictures/next1.png"></a>
+    <a href="/home"><img src="/../pictures/next1.png" class="flash"></a>
 </div>
 </body>
 </html>
