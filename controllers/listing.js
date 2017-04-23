@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Listing = require('mongoose').model('Listing');
 
 module.exports = {
-    listingsGet: (req, res) => {//
+    listingsGet: (req, res) => {
         Listing.find({}).populate('id').then(listings => {
 
             res.render('listings/listings', {

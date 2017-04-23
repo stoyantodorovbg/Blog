@@ -3,7 +3,17 @@ const Message = require('mongoose').model('Message');
 
 module.exports = {
     createGet: (req, res) => {
-        res.render('about/contactUs');
+            if (req.user) {
+                req.user.isInRole('Admin').then(isAdmin => {
+                    let isUserAuthorized = isAdmin;
+
+                    res.render('about/contactUs', {
+                        isUserAuthorized: isUserAuthorized
+                    });
+                });
+            } else{
+                res.render('about/contactUs',req.user);
+            }
     },
     createPost: (req, res) => {
         let messageParts = req.body
@@ -30,5 +40,24 @@ module.exports = {
     },
     sentGet: (req, res) => {
         res.render('/sentMessage');
-    }
+    },
+    messagesGet: (req, res) => {
+            if(!req.isAuthenticated()){
+                let returnUrl = `/about/contactUs/${id}`;
+                req.session.returUrl = returnUrl;
+
+                res.redirect('/user/login');
+                return;
+            }
+
+        Message.find({}).then(messages => {
+            req.user.isInRole('Admin').then(isAdmin => {
+                if(!isAdmin){
+                    res.redirect('/contactUs');
+                    return;
+                }
+                res.render('about/messages', {messages: messages})
+            });
+        });
+    },
 };

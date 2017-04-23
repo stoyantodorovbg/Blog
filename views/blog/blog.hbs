@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>SoftUni Blog</title>
+    <title>Junior developers</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-	
-
-   
+	<script src="/javascripts/moment.min.js"></script>
 </head>
 <body>
 <header>
@@ -26,13 +24,17 @@
                         <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
                         <li><a href="/Users">Users</a></li>
-                        <li><a href="/listings">Ideas</a></li>
+                        <li><a href="/listings">Listings</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/contactUs">Contact</a></li>
                         <li class="navbar-right"><a href="/user/logout">Logout</a></li>
-                        <li class="navbar-right"><a href="/article/create">New Article</a></li>
-                        <li class="navbar-right"><a href="/profile/profile">Welcome({{user.email}})</a></li>
+                        <li class="navbar-right"><a href="/profile/profile">Welcome {{user.fullName}}!</a></li>
                     </ul>
                 </div>
+            </div>
+    </div>
+</header>
     <header>
         <div class="navmenu">
             <div class="container">
@@ -49,17 +51,18 @@
                     <ul class="nav navbar-nav navbar-left" style="width: 100%">
                         <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
                         <li><a href="/blog">Junior developers Blog</a></li>
-                        <li><a href="/Users">Users</a></li>
-                        <li><a href="/listings">Ideas</a></li>
+                        <li><a href="/listings">Listings</a></li>
                         <li><a href="/aboutUs">About Us</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/contactUs">Contact</a></li>
                         <li class="navbar-right"><a href="/user/login">Login</a></li>
                         <li class="navbar-right"><a href="/user/register">Register</a></li>
                     </ul>
                 </div>
             {{/unless}}
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 {{#if error }}
     <h2>{{error}}</h2>
 {{/if}}<div id="blogcontent">

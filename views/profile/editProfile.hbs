@@ -20,7 +20,7 @@
     <h2>{{error}}</h2>
 {{/if}}
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-content w3-margin-top " style="max-width:1400px;">
 
     <!-- The Grid -->
     <div class="w3-row-padding">
@@ -34,75 +34,81 @@
                     <div class="w3-display-bottomleft w3-container w3-text-black">
                         <br>
                         {{#if user}}
-                            <h3>Welcome {{user.fullName}}</h3>
-                            <br>
+                            <div class="w3-container w3-teal w3-round-large">
+                                <h3>Welcome {{user.fullName}}</h3>
+                            </div>
+                            <br/><br/>
                         {{/if}}
                     </div>
                 </div>
 
-                <div class="w3-container">
-
-                    <form class="form" method="POST" action="/profile/profile/{{id}}">
+                <div class="w3-container w3-round-large">
+                    <form class="form w3-round-large" method="POST" action="/profile/profile/{{id}}">
                         <p>
                             <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession
-                            <input class="profession" type="text" name="profession" placeholder="Profession">
+                            <input class="profession w3-round-large" type="text" name="profession" placeholder="Profession">
 
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email
-                            <input class="name" type="email" name="email" placeholder="Email">
+                            <input class="name w3-round-large" type="email" name="email" placeholder="Email">
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>GitHub
+                            <input class="name w3-round-large" type="url" name="github" placeholder="GitHub">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone
                             <br>
-                            <input class="name" type="tel" name="tel" placeholder="Phone">
+                            <input class="name w3-round-large" type="tel" name="tel" placeholder="Phone">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Country
-                            <input class="name" type="text" name="country" placeholder="Country">
+                            <input class="name w3-round-large" type="text" name="country" placeholder="Country">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Town
-                            <input class="name" type="text" name="town" placeholder="Town">
+                            <input class="name w3-round-large" type="text" name="town" placeholder="Town">
                         </p>
                         <br>
                         <p>
-                            <i class=" fa-fw w3-margin-right w3-large w3-text-teal"></i>Age
+                            <i class=" fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>Age
                             <br><br>
-                            <input class="name" type="number" name="age" placeholder="Age">
+                            <input class="name w3-round-large" type="number" name="age" placeholder="Age">
                         </p>
                         <br>
                         <p>
-                            <i class="fa-fw w3-margin-right w3-large w3-text-teal"></i>Gender
+                            <i class="fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>Gender
                             <br>
-                            <input class="name" type="radio" name="sex" value="man" placeholder="Gender"> man
+                            <input class="name w3-round-large" type="radio" name="sex" value="man" placeholder="Gender"> man
                             <br>
-                            <input class="name" type="radio" name="sex" value="woman" placeholder="Sex"> woman
+                            <input class="name w3-round-large" type="radio" name="sex" value="woman" placeholder="Sex"> woman
                         </p>
                         <hr>
 
-                        <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                        <p class="w3-large w3-round-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
 
-                        <input class="name" type="text" name="name" placeholder="Skills:">
+                        <input class="name w3-round-large" type="text" name="name" placeholder="Skills:">
                         <br><br>
 
-                        <input class="name" type="number" name="name" placeholder="Percent of handling">
+                        <input class="name w3-round-large" type="number" name="name" placeholder="Percent of handling">
                         <br><br>
                         <div>
-                            <button class="w3-padding-8"><i class="fa-fw w3-margin-right"></i>><b>Enter this skill</b></></button>
+                            <button class="w3-padding-8 w3-round-large"><i class="fa-fw w3-margin-right"></i>><b>Enter this skill</b></></button>
                         </div>
                         <br><br>
 
                         <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
 
-                        <input class="name" type="number" name="name" placeholder="Percent of handling">
+                        <input class="name w3-round-large" type="number" name="name" placeholder="Percent of handling">
                         <br><br>
                         <div>
-                            <button class="w3-padding-8"><i class="fa-fw w3-margin-right"></i><b>Enter this skill</b></button>
+                            <button class="w3-padding-8 w3-round-large"><i class="fa-fw w3-margin-right"></i><b>Enter this skill</b></button>
                         </div>
                         <br><br>
                         <br><br>
@@ -117,21 +123,19 @@
         <!-- Right Column -->
         <div class="w3-twothird">
 
-            <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+            <div class="w3-container w3-card-2 w3-white w3-margin-bottom w3-round-large">
                 <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
                 <br>
-                <textarea class="w3-margin-bottom" name="workExperience"></textarea>
+                <textarea class="w3-margin-bottom w3-round-large" name="workExperience"></textarea>
             </div>
 
-            <div class="w3-container w3-card-2 w3-white">
+            <div class="w3-container w3-card-2 w3-white w3-round-large">
                 <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
                 <br>
-                <textarea class="w3-margin-bottom" name="education"></textarea>
-            </div>
+                <textarea class="w3-margin-bottom w3-round-large w3-round-large" name="education"></textarea>
 
             <!-- End Right Column -->
         </div>
-        <br>
 
 
         <button type="submit" class="btn btn-success">Edit</button>
