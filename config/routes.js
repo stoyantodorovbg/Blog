@@ -25,6 +25,9 @@ module.exports = (app) => {
     app.get('/listingInput', listingController.createGet);
     app.post('/about/listingInput', listingController.createPost);
     app.get('/sentListing', listingController.sentGet);
+    app.get('/listings/details/:id', listingController.detailsGet);
+    app.get('/listings/delete/:id', listingController.deleteGet);
+    app.post('/listings/delete/:id', listingController.deletePost);
 
     app.get('/Users', usersController.usersGet);
 

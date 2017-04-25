@@ -3,7 +3,7 @@ const Listing = require('mongoose').model('Listing');
 
 module.exports = {
     listingsGet: (req, res) => {
-        Listing.find({}).populate('id').then(listings => {
+        Listing.find({}).then(listings => {
 
             res.render('listings/listings', {
                 listings: listings
@@ -52,5 +52,52 @@ module.exports = {
     },
     sentGet: (req, res) => {
         res.render('/sentListing');
+    },
+
+    detailsGet: (req, res) => {
+        let id = req.params.id;
+
+        Listing.findById(id).then(listing => {
+            if(!req.user){
+                res.render('listings/details', {listing: listing, isUserAuthorized: false});
+                return;
+            }
+
+            req.user.isInRole('Admin').then(isAdmin => {
+                let isUserAuthorized = isAdmin;
+
+                res.render('listings/details', {listing: listing, isUserAuthorized: isUserAuthorized});
+            });
+        });
+    },
+
+    deleteGet: (req, res) => {
+        let id = req.params.id;
+
+        if(!req.isAuthenticated()){
+            let returnUrl = `/listings/delete/${id}`;
+            req.session.returUrl = returnUrl;
+
+            res.redirect('/user/login');
+            return;
+        }
+
+        Listing.findById(id).then(listing => {
+            req.user.isInRole('Admin').then(isAdmin => {
+                if (!isAdmin){
+                    res.redirect('/listings');
+                    return;
+                }
+                res.render('listings/delete', listing)
+            });
+        });
+    },
+
+    deletePost: (req, res) => {
+        let id = req.params.id;
+        Listing.findOneAndRemove({_id: id}).then(listing => {
+            res.redirect('/listings');
+        });
+
     }
 };

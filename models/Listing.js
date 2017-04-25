@@ -5,10 +5,10 @@ let date = new Date();
 let dateString = date.toLocaleDateString();
 let listingSchema = mongoose.Schema({
     author: { type: String, required: true },
+    position: { type: String, required: true},
     email: { type: String, required: true },
     phone: { type: String, required: false },
     content: { type: String, required: true },
-    id: { type: mongoose.Schema.Types.ObjectId},
     date: {type: String, default: dateString}
 });
 

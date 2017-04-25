@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 let date = new Date();
-let dateString = date.toLocaleDateString()
+let dateString = date.toLocaleDateString();
 let newsSchema = mongoose.Schema({
     title: { type: String, required: true },
     summary: { type: String, required: true },

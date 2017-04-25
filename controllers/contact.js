@@ -16,7 +16,7 @@ module.exports = {
             }
     },
     createPost: (req, res) => {
-        let messageParts = req.body
+        let messageParts = req.body;
         let errorMsg = '';
 
         let phoneInput = messageParts.phone;
