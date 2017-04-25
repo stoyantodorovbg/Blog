@@ -66,6 +66,8 @@ module.exports = {
 
         let userId = req.user.id;
         articleParts.author = userId;
+        articleParts.date = new Date();
+
         Article.create(articleParts).then(article => {
             req.user.articles.push(article.id);
             req.user.save(err => {
