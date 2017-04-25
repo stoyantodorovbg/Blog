@@ -1,5 +1,16 @@
 const Article = require('mongoose').model('Article');
 
+function addImages(image, imageArray) {
+    let filename = image.name;
+    image.mv(`./public/pictures/${filename}`, err => {
+        if (err) {
+            console.log(err.message);
+        }
+    });
+
+    imageArray.push(`/pictures/${image.name}`);
+}
+
 module.exports = {
     createGet: (req, res) => {
         res.render('article/create');
@@ -24,24 +35,20 @@ module.exports = {
 
         // Insert, save in base and set multiply image files
         let images = req.files.images;
+        let imageArray = [];
 
         if (images) {
-            for (let image of images) {
-                let filename = image.name;
-                image.mv(`./public/pictures/${filename}`, err => {
-                    if (err) {
-                        console.log(err.message);
-                    }
-                });
+            if(images.length > 1) {
+                for (let image of images) {
+                    addImages(image, imageArray);
+                }
+            } else {
+                let image = images;
+                addImages(image, imageArray);
             }
-
-            let imageArray = [];
-            for (let image of images) {
-                imageArray.push(`/pictures/${image.name}`);
-            }
-
-            articleParts.pathImage = imageArray;
         }
+
+        articleParts.pathImage = imageArray;
 
         // Insert, save in base and set pdf file
         let pdf = req.files.pdf;
@@ -122,10 +129,34 @@ module.exports = {
         if (errorMsg){
             res.render('article/edit', {error: errorMsg})
         } else {
-            Article.update({_id: id}, {$set: {title: articleArgs.title, content: articleArgs.content}})
-                .then(updateStatus => {
-                    res.redirect(`/article/details/${id}`);
-                })
+
+            // Insert, save in base and set multiply image files
+            let images = req.files.images;
+
+            if (images) {
+
+                let imageArray = [];
+                Article.findById(id).then(article => {
+                    imageArray = article.pathImage;
+
+                if (images.length > 1) {
+                    for (let image of images) {
+                        addImages(image, imageArray);
+                    }
+                } else {
+                    let image = images;
+                    addImages(image, imageArray);
+                }
+
+                article.save();
+                });
+            }
+
+            let dateEdit = new Date();
+            Article.update({_id: id}, {$set: {title: articleArgs.title, content: articleArgs.content, dateEdit: dateEdit}})
+                    .then(updateStatus => {
+                        res.redirect(`/article/details/${id}`);
+                    })
         }
     },
     deleteGet: (req, res) => {
@@ -169,8 +200,42 @@ module.exports = {
                 });
 
             }
-
         })
-    }
+    },
+    removePicsGet: (req, res) => {
+        let id = req.params.id;
 
+        Article.findById(id).then(article => {
+            res.render('article/removePics',{article: article});
+        });
+    },
+    removePicsPost: (req, res) => {
+        let id = req.params.id;
+
+        // Remove, save in base and set multiply image files
+        let removeIndexes = req.body.remove;
+
+            Article.findById(id).then(article => {
+                let imageArray = article.pathImage;
+
+                let count = 1;
+                if (removeIndexes.length > 1) {
+                        let removePics = [];
+                        let nextIndex = 0;
+                        for (let index of removeIndexes) {
+                            removePics[nextIndex] = imageArray[index];
+                            nextIndex++;
+                        }
+                            for (let i = 0; i < removePics.length; i++) {
+                                let removeName = imageArray.indexOf(removePics[i]);
+                                imageArray.splice(removeName, count);
+                        }
+                    } else {
+                        imageArray.splice(removeIndexes, count);
+                    }
+
+                    article.save();
+            });
+        res.redirect(`/article/details/${id}`);
+    }
 };
