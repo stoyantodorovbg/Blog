@@ -133,6 +133,15 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+ul.resources li{ /* default CSS for ul.resources li */
+  left: -500px;
+  top: -200px;
+}
+
+ul.resources-after li{ /* CSS class for ul.resources li that script will animate to */
+  left: 0;
+  top: 0;
+}
 
 .fa {
   padding: 20px;
@@ -5960,6 +5969,15 @@ button.list-group-item-danger.active:focus {
 }
 .embed-responsive-4by3 {
   padding-bottom: 75%;
+}
+ul.resources li{ /* default CSS for ul.resources li */
+  left: -500px;
+  top: -200px;
+}
+
+ul.resources-after li{ /* CSS class for ul.resources li that script will animate to */
+  left: 0;
+  top: 0;
 }
 .well {
   min-height: 20px;
