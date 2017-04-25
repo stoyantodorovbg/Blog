@@ -3,40 +3,52 @@
 </head>
 <body id="indexBG" style="background-image: url(../pictures/d.jpg)">
 {{#if user}}
-    <div class="btn1 col-md-4">
-        <a href="/blog" id="blogbtn">Junior developers Blog</a>
+    <div class="btnhead col-md-3  col-md-offset-5">
+        <a href="/profile/profile" id="headbtn">Welcome {{user.fullName}}!</a>
     </div>
-    <div class="btn2 col-md-4 col-md-offset-2">
-        <a href="/Users" id="usersbtn">Users</a>
-    </div>
-    <div class="btn1 col-md-4">
-        <a href="/listings" id="listingsbtn">Listings</a>
-    </div>
-    <div class="btn2 col-md-4 col-md-offset-2">
-        <a href="/aboutUs" id="aboutbtn">About Us</a>
+    <div class="btnhead col-md-3 col-md-offset-1">
+        <a href="/user/logout" id="headbtn">Logout</a>
     </div>
     <div class="btn1 col-md-4">
-        <a href="/news" id="newsbtn">News</a>
+        <a href="/blog" id="menubtn">Junior developers Blog</a>
+    </div>
+    <div class="btn1 col-md-4 col-md-offset-2">
+        <a href="/Users" id="menubtn">Users</a>
+    </div>
+    <div class="btn1 col-md-4">
+        <a href="/listings" id="menubtn">Listings</a>
+    </div>
+    <div class="btn1 col-md-4 col-md-offset-2">
+        <a href="/aboutUs" id="menubtn">About Us</a>
+    </div>
+    <div class="btn1 col-md-4">
+        <a href="/news" id="menubtn">News</a>
         </div>
-    <div class="btn2 col-md-4 col-md-offset-2">
-        <a href="/contactUs" id="contactbtn">Contact</a>
+    <div class="btn1 col-md-4 col-md-offset-2">
+        <a href="/contactUs" id="menubtn">Contact</a>
     </div>
 {{/if}}
 {{#unless user}}
-<div class="btn1 col-md-4">
-        <a href="/blog" id="blogbtn">Junior developers Blog</a>
+<div class="btnhead col-md-3  col-md-offset-5">
+        <a href="/user/login" id="headbtn">Login</a>
     </div>
-    <div class="btn2 col-md-4 col-md-offset-2">
-        <a href="/listings" id="listingsbtn">Listings</a>
+    <div class="btnhead col-md-3 col-md-offset-1">
+        <a href="/user/register" id="headbtn">Register</a>
+</div>
+<div class="btn1 col-md-4">
+        <a href="/blog" id="menubtn">Junior developers Blog</a>
+    </div>
+    <div class="btn1 col-md-4 col-md-offset-2">
+        <a href="/listings" id="menubtn">Listings</a>
     </div>
     <div class="btn1 col-md-4">
-        <a href="/aboutUs" id="aboutbtn">About Us</a>
+        <a href="/aboutUs" id="menubtn">About Us</a>
     </div>
-    <div class="btn2 col-md-4 col-md-offset-2">
-        <a href="/news" id="newsbtn">News</a>
+    <div class="btn1 col-md-4 col-md-offset-2">
+        <a href="/news" id="menubtn">News</a>
         </div>
     <div class="btn1 col-md-4">
-        <a href="/contactUs" id="contactbtn">Contact</a>
+        <a href="/contactUs" id="menubtn">Contact</a>
     </div>
 {{/unless}}
 </body>

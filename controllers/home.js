@@ -8,7 +8,7 @@ module.exports = {
     },
 
     aboutUs: (req, res) => {
-        res.render('about/aboutUs');
+        res.render('about/aboutUs', {layout:false});
     },
 
     blog: (req, res) => {

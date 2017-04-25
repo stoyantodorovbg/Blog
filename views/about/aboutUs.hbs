@@ -1,90 +1,119 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-
-    <link rel="stylesheet" href='/stylesheets/listings.css'>
-    <style>
-        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-    </style>
-    <title>SoftUni Blog</title>
+    <title>Junior developers</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-
-    <SCRIPT LANGUAGE="JavaScript">
-        IMAGE01 = "on.gif"
-        IMAGE02 = "off.gif"
-        function imgover(imgname){
-            imgname.src = IMAGE01
-        }
-        function imgout(imgname){
-            imgname.src = IMAGE02
-        }
-    </SCRIPT>
+	<script src="/javascripts/moment.min.js"></script>
 </head>
 <body>
-<IMG NAME="IMAGE01" SRC="off.gif" WIDTH=10 HEIGHT=10 BORDER=0>
-<A HREF="http://www.altavista.com" onMouseOver="imgover(IMAGE01)" onMouseOut="imgout(IMAGE01)">Altavista</A>
-
-<SCRIPT language="JavaScript">
-    function display_image(form) {
-        selectionname = form.imagename.options[form.imagename.selectedIndex].text;
-        selection = form.imagename.options[form.imagename.selectedIndex].value;
-        PreView = window.open("", "Preview", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=200,height=255");
-        PreView.document.open();
-        PreView.document.write("<HTML><HEAD>");
-        PreView.document.write("<TITLE>Preview</TITLE>");
-        PreView.document.write("</HEAD><BODY BGCOLOR=FFFFFF TEXT=000000>");
-        PreView.document.write("<FORM><CENTER><B><FONT SIZE=+1>" +
-                selectionname + "</FONT></B><HR>");
-        PreView.document.write("<IMG HSPACE=0 VSPACE=0 " +
-                "SRC='" + selection + "'>");
-        PreView.document.write("<HR><FORM><INPUT TYPE='button' VALUE='Close' " +
-                "onClick='window.close()'></FORM>");
-        PreView.document.write("</CENTER>");
-        PreView.document.write("</BODY></HTML>");
-        PreView.document.close();
-    }
-</SCRIPT>
-
-
-<FORM>
-    <select NAME="imagename" onChange="display_image(this.form)">
-        <option value="http://www.javascriptkit.com/abstract.gif" SELECTED>Image 1
-        <option value="http://www.javascriptkit.com/day.gif">Image 2
-        <option value="http://www.javascriptkit.com/night.gif">Image 3
-    </select>
-</FORM>
-
-<SCRIPT>
-    function passWord() {
-        var testV = 1;
-        var pass1 = prompt('Please Enter Your Password',' ');
-        while (testV < 3) {
-            if (!pass1)
-                history.go(-1);
-            if (pass1.toLowerCase() == "asd") {
-                alert('You Got it Right!');
-                window.open('protectpage.html');
-                break;
-            }
-            testV+=1;
-            var pass1 =
-                    prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
-        }
-        if (pass1.toLowerCase()!="password" & testV ==3)
-            history.go(-1);
-        return " ";
-    }
-</SCRIPT>
-<CENTER>
-    <FORM>
-        <input type="button" value="Enter Protected Area" onClick="passWord()">
-    </FORM>
-</CENTER>
-<br>
-<form method="get" action="/contactUs">
-    <button class="w3-button w3-block w3-orange">contact us!</button>
-</form>
-</body>
-
+<header>
+    <div class="navmenu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                    <span class="icon-bar">asd</span>
+                </button>
+            </div>
+            {{#if user}}
+               <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/listings">Listings</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/contactUs">Contact</a></li>
+                        <li class="navbar-right"><a href="/user/logout">Logout</a></li>
+                        <li class="navbar-right"><a href="/profile/profile">Welcome {{user.fullName}}!</a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</header>
+    <header>
+        <div class="navmenu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#unless user}}
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left" style="width: 100%">
+                        <li><a href="/home"><img src="/../pictures/home.png" style="height: 22px; width: 40px; object-fit: contain" ></a></li>
+                        <li><a href="/blog">Junior developers Blog</a></li>
+                        <li><a href="/listings">Listings</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/contactUs">Contact</a></li>
+                        <li class="navbar-right"><a href="/user/login">Login</a></li>
+                        <li class="navbar-right"><a href="/user/register">Register</a></li>
+                    </ul>
+                </div>
+            {{/unless}}
+            </div>
+        </div>
+    </header>
+{{#if error }}
+    <h2>{{error}}</h2>
+{{/if}}
+<div class="wrapper row2">
+  <div id="container" class="clear">
+   <div id="about-us" class="clear">
+        <section id="about-intro" class="clear">
+        <p>This is a really long paragraph explaining what we're about in details</p>
+        <p>And this right here is a second paragraph, because, well why the fuck not! :)</p>
+      </section>
+      <section id="team">
+        <h2>Our Team</h2>
+        <ul class="clear">
+          <li class="one_quarter first">
+            <figure class="thumbnail"><img src="/../pictures/face.jpg" width="100px" alt="">
+              <figcaption>
+                <p class="team_name">Daniel Popov</p>
+                <p class="team_title">Senior JavaScript Developer</p>
+                <p class="team_description">This is something short and really expiring about me and my beliefs. Oh and something about programming, too.</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure class="thumbnail"><img src="images/demo/team-member.gif" alt="">
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+                <p class="team_description">Vestassapede et donec ut est liberos sus et eget sed eget. Quisqueta habitur augue magnisl magna phas ellus sagit titor ant curabi turpis.</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure class="thumbnail"><img src="images/demo/team-member.gif" alt="">
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+                <p class="team_description">Vestassapede et donec ut est liberos sus et eget sed eget. Quisqueta habitur augue magnisl magna phas ellus sagit titor ant curabi turpis.</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure class="thumbnail"><img src="images/demo/team-member.gif" alt="">
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+                <p class="team_description">Vestassapede et donec ut est liberos sus et eget sed eget. Quisqueta habitur augue magnisl magna phas ellus sagit titor ant curabi turpis.</p>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+      </div>
+      </div>
+</div>

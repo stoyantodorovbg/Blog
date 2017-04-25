@@ -16,10 +16,20 @@ module.exports = {
             }
     },
     createPost: (req, res) => {
-        let messageParts = req.body
+        let messageParts = req.body;
         let errorMsg = '';
 
-       if (!messageParts.content) {
+        let phoneInput = messageParts.phone;
+        let rePhone = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+        let emailInput = messageParts.email;
+        let reEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])/;
+
+        if (emailInput.search(reEmail) == -1) {
+            errorMsg = emailInput + ' it is not valid email address!';
+        }else if (phoneInput.search(rePhone) == -1) {
+            errorMsg ='Please, insert valid phone number, using only digits!';
+        }else if (!messageParts.content) {
             errorMsg = 'Invalid content!';
         }
         if (errorMsg) {
