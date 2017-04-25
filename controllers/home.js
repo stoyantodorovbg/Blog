@@ -4,11 +4,11 @@ const Article = require('mongoose').model('Article');
 
 module.exports = {
     index: (req, res) => {
-            res.render('home/index');
+            res.render('home/index', {layout:false});
     },
 
     aboutUs: (req, res) => {
-        res.render('about/aboutUs');
+        res.render('about/aboutUs', {layout:false});
     },
 
     blog: (req, res) => {

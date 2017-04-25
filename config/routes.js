@@ -19,11 +19,15 @@ module.exports = (app) => {
     app.get('/contactUs', contactController.createGet);
     app.post('/about/contactUs', contactController.createPost);
     app.get('/sentMessage', contactController.sentGet);
+    app.get('/about/messages/:id', contactController.messagesGet)
 
     app.get('/listings', listingController.listingsGet);
     app.get('/listingInput', listingController.createGet);
     app.post('/about/listingInput', listingController.createPost);
     app.get('/sentListing', listingController.sentGet);
+    app.get('/listings/details/:id', listingController.detailsGet);
+    app.get('/listings/delete/:id', listingController.deleteGet);
+    app.post('/listings/delete/:id', listingController.deletePost);
 
     app.get('/Users', usersController.usersGet);
 

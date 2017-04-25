@@ -13,24 +13,30 @@
 </head>
 <div id="ideas">
     <div class="row">
-        {{#each listings}}
             <div class="w3-panel w3-green w3-topbar w3-bottombar w3-border-amber w3-round-large">
                 <div class="col-md-6">
                     <listings>
                         <small class="date">
                             <br><br>
-                            <p class="postDate">date of publication: {{this.date}}</p>
+                            <p class="postDate">date of publication: {{listing.date}}</p>
                         </small>
                         <small class="position">
-                            <h3>{{this.position}}</h3>
+                            <h4>{{this.position}}</h4>
                         </small>
                         <small class="author">
-                            <h4>{{this.author}}</h4>
+                            <h3>{{listing.author}}</h3>
                         </small>
-                        <br/>
-                        <div class="fl_right" class="w3-panel w3-round-large w3-teal">
-                            <a href="/listings/details/{{this.id}}" class="w3-btn w3-blue w3-round-large">Read more</a>
-                        </div>
+                        <p>{{listing.content}}
+                        </p>
+
+                        <small class="email">
+                            email: {{listing.email}}
+                        </small>
+                        <br>
+                        <small class="phone">
+                            phone: {{listing.phone}}
+                        </small>
+
                     </listings>
                 </div>
             </div>
@@ -39,11 +45,13 @@
                 let formattedDate = moment(date).format('LLLL');
                 $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
             </script>
-        {{/each}}
+
+            <div class="pull-right">
+                {{#if isUserAuthorized}}
+                <form class="form" method="POST" action="/listings/delete/{{listing.id}}">
+                    <a class="btn btn-danger btn-xs" href="/listings/delete/{{listing.id}}">Delete</a>
+                </form>
+                {{/if}}
+            </div>
     </div>
 </div>
-<div  class="w3-round-large">
-        <a href="/listingInput" class="w3-btn w3-red w3-round-large">Publish your listing here</a>
-    <a href="/contactUs" class="w3-btn w3-orange w3-round-large">Contact us!</a>
-</div>
-
