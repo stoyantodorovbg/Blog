@@ -68,6 +68,8 @@ module.exports = (app) => {
     app.get('/news/delete/:id', newsController.deleteGet);
     app.post('/news/delete/:id', newsController.deletePost);
 
+    app.get('/article/removePics/:id', articleController.removePicsGet);
+    app.post('/article/removePics/:id', articleController.removePicsPost);
 
 };
 

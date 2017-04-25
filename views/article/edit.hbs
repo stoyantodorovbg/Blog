@@ -1,6 +1,6 @@
 <div class="container body-content span=8 offset=2">
     <div class="well">
-        <form class="form-horizontal" method="POST" action="/article/edit/{{id}}">
+        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/article/edit/{{id}}">
             <fieldset>
                 <legend>Edit Article</legend>
 
@@ -12,15 +12,28 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="articleContent">Content</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <textarea class="form-control" id="articleContent" rows="5" name="content" required>{{content}}</textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <a href="/blog" class="btn btn-default">Cancel</a>
+                    <label class="col-sm-4 control-label" for="image">Add pictures</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="image" type="file" name="images" multiple="multiple"/>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="removePics">Remove pictures</label>
+                    <div class="col-sm-4">
+                       <a href="/article/removePics/{{this.id}}" class="form-control btn btn-warning" style="text-align: left">Choose Pictures</a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a href="/article/details/{{this.id}}" class="btn btn-default">Cancel</a>
                         <button type="submit" href="/article/edit/{{id}}" class="btn btn-success">Edit</button>
                     </div>
                 </div>

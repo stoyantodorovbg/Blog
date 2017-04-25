@@ -7033,3 +7033,15 @@ legend {
   margin: 50px;
   font-size: 11px;
 }
+#iframe {
+  border: 1px solid black;
+  float: right;
+  margin-bottom: 20px;
+}
+#picsLabel{
+  display: inline-block;
+}
+#Image {
+  display: inline-block;
+  margin-bottom: 1px;
+}

@@ -4,17 +4,25 @@ const Profile = require('mongoose').model('Profile')
 
 module.exports = {
     profileGet: (req, res) => {
-        let user = req.params.user;
+        let userId = req.user.id;
 
-        Profile.findById(user).populate('user').then(profile => {
-                res.render('profile/profile', req.user);            
+        //console.log(req);
+        Profile.findOne({'user': userId}).populate('user').then(profile => {
+                res.render('profile/profile', profile);
+            console.log(req.body);
         });
+        //console.log(req);
     },
     profileEditGet: (req, res) => {
         let id = req.params.id;
+        let userId = req.user.id;
 
-        Profile.findById(id).populate('user').then(profile => {
-                res.render('profile/editProfile', req.user);            
+        Profile.findOne({'user': userId}).populate('user').then(profile => {
+                res.render('profile/editProfile', profile, req.user);
+                console.log(req.body);
+
+        // Profile.findById(id).populate('user').then(profile => {
+        //         res.render('profile/editProfile', req.user);
         });
     },
     profileEditPost: (req, res) => {

@@ -12,7 +12,14 @@
 
                 {{#if article.pathImage}}
                     {{#each article.pathImage}}
-                        <img src="{{this}}" alt="Article Image" width="300px"/>
+                        <div class="col-md-4">
+                                <img src="{{this}}" alt="Article Image" id="Image" name="Images" width="300px"/>
+                            <!--<div class="col-md-12 col-md-offset-5">-->
+                                <!--<label class="control-label" for="Image" id="picsLabel">-->
+                                    <!--{{@index}}-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        </div>
                     {{/each}}
                 {{/if}}
 
@@ -20,13 +27,18 @@
                     <embed src="{{article.pathPdf}}" alt="Pdf File" width="800px" height="800px" />
                 {{/if}}
 
+                <div class="col-md-12">
                 <p>
                     <small class="author">
                         {{article.author.fullName}}
                     </small>
                 </p>
+                </div>
                 <footer>
                     <div class="pull-left">
+                        {{#if article.dateEdit}}
+                            <p class="postDateEdit">{{article.dateEdit}}</p>
+                        {{/if}}
                         <p class="postDate">Posted on {{article.date}}</p>
                     </div>
                     <div class="pull-right">
@@ -49,7 +61,7 @@
   /*<!--*/ if(!window.hcb_user){hcb_user={  };}
    (function(){s=document.createElement("script");
    s.setAttribute("type","text/javascript");
-   s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE) || (""+window.location)).replace("+","%2B")+"&opts=470&num=10");
+   s.setAttribute("srcconsole.log(date);", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE) || (""+window.location)).replace("+","%2B")+"&opts=470&num=10");
    if (typeof s!="undefined") {
        
    }
@@ -58,6 +70,12 @@
 
 <script>
     let date = $('.postDate').text();
-    let formattedDate = moment(date).format('LLLL');
-    $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
+
+    const dateFormat = 'L' + " - " + 'LT';
+    let formattedDate = moment(date).format(dateFormat);
+    $('.postDate').html(`Posted on <em>${formattedDate}</em>`);
+
+    let dateE = $('.postDateEdit').text();
+    let formattedDateE = moment(dateE).format(dateFormat);
+    $('.postDateEdit').html(`Edited on <em>${formattedDateE}</em>`);
 </script>

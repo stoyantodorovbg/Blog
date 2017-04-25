@@ -1,0 +1,48 @@
+<div class="container body-content">
+    <div class="row">
+        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/article/removePics/{{article.id}}">
+            <article>
+                <legend>Remove Pictures</legend>
+
+                {{#if article.pathImage}}
+                    {{#each article.pathImage}}
+                        <div class="form-group col-md-4">
+
+                            <div class="col-md-12">
+                                <img src="{{this}}" alt="Article Image" id="Image" name="Images" width="300px"/>
+                            </div>
+                            <div class="col-md-12 col-md-offset-5">
+                                <label class="control-label" for="Image" id="picsLabel">
+                                    {{@index}}
+                                </label>
+                                <script>
+                                    $(function() {
+                                        $("select").append("<option>" + {{@index}} + "</option>");
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    {{/each}}
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="select">Remove pictures</label>
+                        <div class="col-sm-1">
+                            <select class="form-control" id="select" name="remove" multiple="multiple" size="3" required="required">
+                            </select>
+                        </div>
+                    </div>
+
+                {{/if}}
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a href="/article/edit/{{article.id}}" class="btn btn-default">Cancel</a>
+                        {{#if article.pathImage}}
+                            <button type="submit" href="/article/removePics/{{article.id}}" class="btn btn-danger">Remove</button>
+                        {{/if}}
+                    </div>
+                </div>
+            </article>
+        </form>
+    </div>
+</div>
