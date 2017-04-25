@@ -12,11 +12,8 @@
 
                 {{#if article.pathImage}}
                     {{#each article.pathImage}}
-                        <div class="form-group col-md-4">
-
-                            <div class="col-md-12">
+                        <div class="col-md-4">
                                 <img src="{{this}}" alt="Article Image" id="Image" name="Images" width="300px"/>
-                            </div>
                             <!--<div class="col-md-12 col-md-offset-5">-->
                                 <!--<label class="control-label" for="Image" id="picsLabel">-->
                                     <!--{{@index}}-->
@@ -73,11 +70,12 @@
 
 <script>
     let date = $('.postDate').text();
-    let formattedDate = moment(date).format('L' + " - " + 'LT');
-    $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
-</script>
-<script>
+
+    const dateFormat = 'L' + " - " + 'LT';
+    let formattedDate = moment(date).format(dateFormat);
+    $('.postDate').html(`Posted on <em>${formattedDate}</em>`);
+
     let dateE = $('.postDateEdit').text();
-    let formattedDateE = moment(dateE).format('L' + " - " + 'LT');
-    $('.postDateEdit').html(`Edited on <em>${formattedDateE}</em>`)
+    let formattedDateE = moment(dateE).format(dateFormat);
+    $('.postDateEdit').html(`Edited on <em>${formattedDateE}</em>`);
 </script>
