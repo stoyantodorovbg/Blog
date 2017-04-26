@@ -22,8 +22,9 @@
     <br/>
     <h4><i><b>publish by: {{newsStory.author}}</b></i></h4>
     <h5><i><b>source: </b><a href="{{newsStory.source}}"></a>{{newsStory.source}}</i></h5>
-{{#if newsStory.pathImage}}
-        <div class="w3-container w3-teal w3-panel w3-round-large">
+    <iframe width="800" height="448" src="https://www.youtube.com/embed/w3jLJU7DT5E" frameborder="0" allowfullscreen></iframe>
+    {{#if newsStory.pathImage}}
+    <div class="w3-container w3-teal w3-panel w3-round-large">
             {{#each newsStory.pathImage}}
                 <img src="{{this}}" alt="Article Image" width="300px"/>
             {{/each}}
