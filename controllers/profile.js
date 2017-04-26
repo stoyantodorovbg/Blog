@@ -18,7 +18,7 @@ module.exports = {
         let userId = req.user.id;
 
         Profile.findOne({'user': userId}).populate('user').then(profile => {
-                res.render('profile/editProfile', profile, req.user);
+                res.render('profile/editProfile', profile);
                 console.log(req.body);
 
         // Profile.findById(id).populate('user').then(profile => {

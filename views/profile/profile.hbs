@@ -30,7 +30,7 @@
 
             <div class="w3-white w3-text-grey w3-card-4">
                 <div class="w3-display-container">
-                    <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar">
+                    <img src=" " style="width:100%" alt="Avatar">
                     <div class="w3-display-bottomleft w3-container w3-text-black">
                         <br/><br/>
                         {{#if user}}
@@ -62,7 +62,7 @@
                         <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>{{this.age}}
                     </p>
                     <p>
-                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>   Gender
+                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>   {{this.sex}}
                     </p>
                     <hr>
 
@@ -97,7 +97,7 @@
             <br>
 
             <div>
-                <button class="w3-padding-8 w3-round-large"><i class="fa-fw w3-margin-right"></i><a href="/editProfile/{{user.id}}"><b>Edit Profile</b></a></button>
+                <button class="w3-padding-8 w3-round-large"><i class="fa-fw w3-margin-right"></i><a href="/editProfile/{{id}}"><b>Edit Profile</b></a></button>
             </div>
 
             <!-- End Right Column -->
