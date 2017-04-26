@@ -6,6 +6,96 @@
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
 	<script src="/javascripts/moment.min.js"></script>
+    <script>
+        jQuery(function($){
+            var defaults = {
+                duration: 0.5,
+                pause: 0.5,
+                delaybeforestart: 'onvisible',
+                postclass: 'animated-after'
+            }
+
+            function css3propmap(){ // param: {css3prop1: value1, css3prop2: value2, etc}
+                var vendorprefixes = ['-ms-', '-o-', '-moz-', '-webkit-'],
+                        propmap = {}
+                for (var i=0; i<arguments.length; i++){
+                    propmap[arguments[i][0]] = arguments[i][1]
+                    for (var t=0; t<vendorprefixes.length; t++){
+                        propmap[vendorprefixes[t] + arguments[i][0]] = arguments[i][1]
+                    }
+                }
+                return propmap
+            }
+
+
+            $.fn.animatelist = function(options) {
+                if (typeof $.animatedlists == "undefined") // global var to store ref to ULs that will be animated
+                    $.animatedlists = []
+
+                function inrange(range, field) { // check if "playing field" is inside range
+                    var rangespan = range[1] - range[0], fieldspan = field[1] - field[0]
+                    if ((range[0] - field[0]) > 0 && (range[0] - field[0]) <= fieldspan) // if top of range (viewport) is on field
+                        return true
+                    else {
+                        if ((range[0] - field[0]) < 0 && (range[0] + rangespan) >= field[0]) // if part of range overlaps field
+                            return true
+                    }
+                    return false
+                }
+
+                if (Array.filter && !$(window).data('scrollbind')) { // on window scroll
+                    var $window = $(window)
+                    $window.bind('scroll.scrollbind', function () {
+                        var scrolltop = $window.scrollTop(), animatedlists = $.animatedlists
+                        animatedlists = animatedlists.filter(function (el, index) { // find ULs that are visible on the screen and should be shown
+                            return (!el.shownflag && inrange([el.offsettop, el.offsettop + el.ulheight], [scrolltop, scrolltop + $window.height()]))
+                        })
+                        for (var i = 0; i < animatedlists.length; i++) {
+                            animatedlists[i].$ul.addClass(animatedlists[i].postclass)
+                            animatedlists[i].shownflag = true
+                        }
+                    })
+                    $window.bind('load', function () { // refresh UL top offsets when the page fully loads
+                        var animatedlists = $.animatedlists
+                        for (var i = 0; i < animatedlists.length; i++) {
+                            animatedlists[i].offsettop = animatedlists[i].$ul.offset().top
+                            animatedlists[i].ulheight = animatedlists[i].$ul.outerHeight()
+                        }
+                        $window.trigger('scroll.scrollbind')
+                    })
+                    $(window).data('scrollbind', true)
+                }
+
+                return this.each(function () {
+                    var $ul = $(this).css({overflow: 'hidden'})
+                    var o = $.extend({}, defaults, options)
+                    var $lis = $ul.children('li').css({position: 'relative'})
+                    $lis.each(function (i) {
+                        $(this).css(css3propmap(['transition', 'all ' + o.duration + 's ease-in-out ' + i * (o.pause) + 's']))
+                    })
+                    if (typeof o.delaybeforestart == "number") {
+                        setTimeout(function () {
+                            $ul.addClass(o.postclass)
+                        }, o.delaybeforestart * 1000)
+                    }
+                    else if (o.delaybeforestart == "onvisible" && Array.filter) {
+                        var offsettop = $ul.offset().top
+                        $.animatedlists.push({
+                            $ul: $ul,
+                            offsettop: offsettop,
+                            ulheight: $ul.outerHeight(),
+                            shownflag: false,
+                            postclass: o.postclass
+                        })
+                    }
+                    else {
+                        $ul.addClass(o.postclass)
+                    }
+                }) // end return
+            };
+            $('ul.resources').animatelist({postclass: 'resources-after'})
+        })(jQuery);
+    </script>
 </head>
 <body>
 <header>
@@ -75,7 +165,7 @@
       </section>
       <section id="team">
         <h2>Our Team</h2>
-        <ul class="clear">
+        <ul class="resources">
           <li class="one_quarter first">
             <figure class="thumbnail"><img src="/../pictures/face.jpg" width="100px" alt="">
               <figcaption>
@@ -86,20 +176,20 @@
             </figure>
           </li>
           <li class="one_quarter">
-            <figure class="thumbnail"><img src="images/demo/team-member.gif" alt="">
+            <figure class="thumbnail"><img src="/../pictures/Goebbels.jpg" width="100px" alt="">
               <figcaption>
-                <p class="team_name">Name Goes Here</p>
-                <p class="team_title">Job Title Here</p>
-                <p class="team_description">Vestassapede et donec ut est liberos sus et eget sed eget. Quisqueta habitur augue magnisl magna phas ellus sagit titor ant curabi turpis.</p>
+                <p class="team_name">Nikola Popov</p>
+                <p class="team_title">Master of Copypasta</p>
+                <p class="team_description">"Programming is like kicking yourself in the face, sooner or later your nose will bleed." Quote is also copy/paste.</p>
               </figcaption>
             </figure>
           </li>
           <li class="one_quarter">
-            <figure class="thumbnail"><img src="images/demo/team-member.gif" alt="">
+            <figure class="thumbnail"><img src="/../pictures/Stoyan.jpg" width="100" alt="">
               <figcaption>
-                <p class="team_name">Name Goes Here</p>
-                <p class="team_title">Job Title Here</p>
-                <p class="team_description">Vestassapede et donec ut est liberos sus et eget sed eget. Quisqueta habitur augue magnisl magna phas ellus sagit titor ant curabi turpis.</p>
+                <p class="team_name">Stoyan Todorov</p>
+                <p class="team_title">Student</p>
+                <p class="team_description">Programming it is interesting, because cultivates creative and logic thinking simultaneously.</p>
               </figcaption>
             </figure>
           </li>
