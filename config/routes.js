@@ -2,15 +2,15 @@ const userController = require('./../controllers/user');
 const homeController = require('./../controllers/home');
 const articleController = require('./../controllers/article');
 const contactController = require('./../controllers/contact');
-const usersController = require('./../controllers/Users');
+const UsersController = require('./../controllers/Users');
 const profileController = require('./../controllers/profile');
 const listingController = require('./../controllers/listing');
 const newsController = require('./../controllers/news');
 
 module.exports = (app) => {
     app.get('/profile/profile', profileController.profileGet);
-    app.get('/editProfile/:id', profileController.profileEditGet);
-    app.post('/profile/profile/:id', profileController.profileEditPost);
+    app.get('/editProfile', profileController.profileEditGet);
+    app.post('/profile/profile', profileController.profileEditPost);
 
 
     app.get('/', homeController.welcome);
@@ -29,7 +29,7 @@ module.exports = (app) => {
     app.get('/listings/delete/:id', listingController.deleteGet);
     app.post('/listings/delete/:id', listingController.deletePost);
 
-    app.get('/Users', usersController.usersGet);
+    app.get('/Users', UsersController.usersGet);
 
 
     app.get('/aboutUs', homeController.aboutUs);
