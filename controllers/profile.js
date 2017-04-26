@@ -16,7 +16,6 @@ module.exports = {
 
         Profile.findOne({'user': userId}).populate('user').then(profile => {
                 res.render('profile/editProfile', profile);
-                console.log(req.body);
         });
     },
     profileEditPost: (req, res) => {
