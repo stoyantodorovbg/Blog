@@ -22,13 +22,18 @@
     <br/>
     <h4><i><b>publish by: {{newsStory.author}}</b></i></h4>
     <h5><i><b>source: </b><a href="{{newsStory.source}}"></a>{{newsStory.source}}</i></h5>
-{{#if newsStory.pathImage}}
-        <div class="w3-container w3-teal w3-panel w3-round-large">
-            {{#each newsStory.pathImage}}
-                <img src="{{this}}" alt="Article Image" width="300px"/>
-            {{/each}}
-        </div>
-{{/if}}
+    {{#if newsStory.pathImage}}
+        {{#each newsStory.pathImage}}
+            <div class="col-md-4">
+                <img src="{{this}}" alt="Article Image" id="Image" name="Images" width="300px"/>
+                <!--<div class="col-md-12 col-md-offset-5">-->
+                <!--<label class="control-label" for="Image" id="picsLabel">-->
+                <!--{{@index}}-->
+                <!--</label>-->
+                <!--</div>-->
+            </div>
+        {{/each}}
+    {{/if}}
             </article>
         </div>
     </div>
