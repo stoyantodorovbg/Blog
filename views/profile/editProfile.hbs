@@ -33,55 +33,6 @@
                     <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar">
                     <div class="w3-display-bottomleft w3-container w3-text-black">
                         <br>
-                        {{#if user}}
-                            <div class="w3-container w3-teal w3-round-large">
-                                <h6>Welcome {{user.fullName}}</h6>
-                            </div>
-                            <br/><br/>
-                    </div>
-                </div>
-
-                <div class="w3-container w3-round-large">
-                    <form class="form w3-round-large" method="POST" action="/profile/profile">
-                        <p>
-                            <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                            <input class="profession w3-round-large" type="text" name="profession" placeholder="{{this.profession}}">
-
-                        </p>
-                        <br>
-                        <p>
-                            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                            <input class="name w3-round-large" type="email" name="email" placeholder="{{user.email}}">
-                        </p>
-                        <br>
-                        <p>
-                            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>GitHub
-                            <input class="name w3-round-large" type="url" name="github" placeholder="GitHub">
-                        </p>
-                        <br>
-                        <p>
-                            <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                            <br>
-                            <input class="name w3-round-large" type="tel" name="tel" placeholder="{{this.tel}}">
-                        </p>
-                        <br>
-                        <p>
-                            <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                            <input class="name w3-round-large" type="text" name="country" placeholder="{{this.country}}">
-                        </p>
-                        <br>
-                        <p>
-                            <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                            <input class="name w3-round-large" type="text" name="town" placeholder="{{this.town}}">
-                        </p>
-                        <br>
-                        <p>
-                            <i class=" fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>
-                            <br><br>
-                            <input class="name w3-round-large" type="number" name="age" placeholder="{{this.age}}">
-                        </p>
-                        {{/if}}
-                        {{#unless user}}
                             <div class="w3-container w3-teal w3-round-large">
                                 <h6>Welcome {{user.fullName}}</h6>
                             </div>
@@ -93,49 +44,47 @@
                     <form class="form w3-round-large" method="POST" action="/profile/profile">
                         <p>
                             <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession
-                            <input class="profession w3-round-large" type="text" name="profession" placeholder="Profession">
+                            <input class="profession w3-round-large" value="{{this.profession}}" type="text" name="profession" placeholder="Profession">
 
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email
-                            <input class="name w3-round-large" type="email" name="email" placeholder="Email">
+                            <input class="name w3-round-large" value="{{this.email}}" type="email" name="email" placeholder="Email">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>GitHub
-                            <input class="name w3-round-large" type="url" name="github" placeholder="GitHub">
+                            <input class="name w3-round-large" value="{{this.github}}" type="text" name="github" placeholder="GitHub">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone
                             <br>
-                            <input class="name w3-round-large" type="tel" name="tel" placeholder="Phone">
+                            <input class="name w3-round-large" value="{{this.tel}}" type="tel" name="tel" placeholder="Phone">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Country
-                            <input class="name w3-round-large" type="text" name="country" placeholder="Country">
+                            <input class="name w3-round-large" value="{{this.country}}" type="text" name="country" placeholder="Country">
                         </p>
                         <br>
                         <p>
                             <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Town
-                            <input class="name w3-round-large" type="text" name="town" placeholder="Town">
+                            <input class="name w3-round-large" value="{{this.town}}" type="text" name="town" placeholder="Town">
                         </p>
                         <br>
                         <p>
                             <i class=" fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>Age
-                            <br><br>
-                            <input class="name w3-round-large" type="number" name="age" placeholder="Age">
+                            <input class="name w3-round-large" value="{{this.age}}" type="number" name="age" placeholder="Age">
                         </p>
-                        {{/unless}}
                         <br>
                         <p>
                             <i class="fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>Gender
                             <br>
-                            <input class="name w3-round-large" type="radio" name="sex" value="man" placeholder="Gender"> man
+                            <input class="name w3-round-large" type="radio" name="sex" value="{{this.sex}}" placeholder="Gender"> Male
                             <br>
-                            <input class="name w3-round-large" type="radio" name="sex" value="woman" placeholder="Sex"> woman
+                            <input class="name w3-round-large" type="radio" name="sex" value="{{this.sex}}" placeholder="Gender"> Female
                         </p>
                         <hr>
                         <br><br>
@@ -153,13 +102,13 @@
             <div class="w3-container w3-card-2 w3-white w3-margin-bottom w3-round-large">
                 <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
                 <br>
-                <textarea class="w3-margin-bottom w3-round-large" name="workExperience"></textarea>
+                <textarea class="w3-margin-bottom w3-round-large" placeholder="Work Experience" name="workExperience">{{this.workExperience}}</textarea>
             </div>
 
             <div class="w3-container w3-card-2 w3-white w3-round-large">
                 <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
                 <br>
-                <textarea class="w3-margin-bottom w3-round-large w3-round-large" name="education"></textarea>
+                <textarea class="w3-margin-bottom w3-round-large w3-round-large" placeholder="Education" name="education">{{this.education}}</textarea>
 
             <!-- End Right Column -->
         </div>

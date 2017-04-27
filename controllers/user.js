@@ -1,5 +1,6 @@
 const User = require('mongoose').model('User');
 const Role = require('mongoose').model('Role');
+const Profile = require('mongoose').model('Profile');
 const encryption = require('./../utilities/encryption');
 
 module.exports = {
@@ -33,7 +34,7 @@ module.exports = {
             } else {
                 let salt = encryption.generateSalt();
                 let passwordHash = encryption.hashPassword(registerArgs.password, salt);
-
+                
                 let userObject = {
                     email: registerArgs.email,
                     passwordHash: passwordHash,
