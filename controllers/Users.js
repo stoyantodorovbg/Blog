@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('mongoose').model('User');
+const Profile = require('mongoose').model('Profile');
 
 module.exports = {
     usersGet: (req, res) => {
@@ -13,9 +14,9 @@ module.exports = {
     detailsGet: (req, res) => {
         let id = req.params.id;
 
-        User.findById(id).populate('profiles').then(user => {
+        Profile.findOne({'user': id}).populate('user').then(profile => {
 
-            res.render('Users/details', {user: user});
+            res.render('Users/details', {profile: profile});
 
         });
     },
