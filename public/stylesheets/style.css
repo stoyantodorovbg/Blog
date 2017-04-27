@@ -13,11 +13,20 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /* ------------------------------HOME CSS--------------------------- */
- .btnhead {
+.strokeme
+{
+  color: white;
+  text-shadow:
+          -1px -1px 0 #fff,
+          1px -1px 0 #fff,
+          -1px 1px 0 #fff,
+          1px 1px 0 #fff;
+}
+.btnhead {
   background-color: Transparent;
   -webkit-border-radius: 12;
   -moz-border-radius: 12;
-  border: 3px solid black;
+  border: 3px solid ghostwhite;
   border-radius: 3px;
   font-family: sans-serif;
   color: #ffffff;
@@ -29,11 +38,27 @@
   text-align: right;
   margin-bottom: 30px;
 }
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(polina.jpg) no-repeat;
+  background-size: cover;
+}
  .btn1 {
   background-color: Transparent;
   -webkit-border-radius: 12;
   -moz-border-radius: 12;
-  border: 3px solid black;
+  border: 3px solid ghostwhite;
   border-radius: 3px;
   font-family: sans-serif;
   color: #ffffff;
@@ -49,12 +74,12 @@
       background-size: cover;
 }
 #headbtn {
-    color: ghostwhite;
+    color: black;
     display: inline-block;
     text-align: right;
 }
 #menubtn {
-    color: ghostwhite;
+    color: black;
     padding: 20px;
     align: center;
     text-align: center;

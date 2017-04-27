@@ -30,39 +30,31 @@
 
             <div class="w3-white w3-text-grey w3-card-4">
                 <div class="w3-display-container">
-                    <img src=" " style="width:100%" alt="Avatar">
                     <div class="w3-display-bottomleft w3-container w3-text-black">
-                        <br/><br/>
-                        {{#if user}}
-                            <div class="w3-container w3-teal w3-round-large">
-                                <h6>Welcome {{user.fullName}}</h6>
-                            </div>
-                            <br/><br/>
-                        {{/if}}
                     </div>
                 </div>
 
                 <div class="w3-container w3-round-large">
                   <p>
-                        <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{this.profession}}
+                        <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession: {{this.profession}}
                     </p>
                     <p>
-                        <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{this.user.email}}
+                        <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email: {{this.user.email}}
                     </p>
                     <p>
-                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>{{this.github}}
+                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>Github: {{this.github}}
                     </p>
                     <p>
-                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{this.country}}
+                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Country: {{this.country}}
                     </p>
                     <p>
-                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{this.town}}
+                        <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Town: {{this.town}}
                     </p>
                     <p>
-                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>{{this.age}}
+                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>Age: {{this.age}}
                     </p>
                     <p>
-                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>{{this.sex}}
+                        <i class="fa fa-asterisk w3-margin-right w3-large w3-text-teal"></i>Gender: {{this.sex}}
                     </p>
                     <hr>
                     <br>
@@ -77,11 +69,11 @@
         <div class="w3-twothird">
 
             <div class="w3-container w3-card-2 w3-white w3-margin-bottom w3-round-large">
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>{{this.workExperience}}</h2>
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience: {{this.workExperience}}</h2>
             </div>
 
             <div class="w3-container w3-card-2 w3-white w3-round-large">
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>{{this.education}}</h2>
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education: {{this.education}}</h2>
             </div>
             <br>
 
