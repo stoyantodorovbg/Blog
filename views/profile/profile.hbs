@@ -35,6 +35,11 @@
                 </div>
 
                 <div class="w3-container w3-round-large">
+                    {{#if this.pathImage}}
+                    <div class="col-md-12" style="margin-top: 10px">
+                        <img src="{{this.pathImage}}" alt="Article Image" id="image" name="image" width="300px"/>
+                    </div>
+                    {{/if}}
                   <p>
                         <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession: {{this.profession}}
                     </p>

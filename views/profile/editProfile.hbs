@@ -41,7 +41,16 @@
                 </div>
 
                 <div class="w3-container w3-round-large">
-                    <form class="form w3-round-large" method="POST" action="/profile/profile">
+                    <form class="form w3-round-large" enctype="multipart/form-data" method="POST" action="/profile/profile">
+
+                            <label class="col-sm-12 control-label" for="image">Add picture</label>
+                        <br>
+                            <div class="col-sm-12">
+                                <input class="form-control" id="image" type="file" name="image"/>
+                            </div>
+                        <br>
+
+
                         <p>
                             <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession
                             <input class="profession w3-round-large" value="{{this.profession}}" type="text" name="profession" placeholder="Profession">

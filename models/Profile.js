@@ -14,7 +14,8 @@ let profileSchema = mongoose.Schema({
     workExperience: {type: String, required: false},
     education: {type: String, required: false},
     user: {type: mongoose.Schema.Types.ObjectId, required: false, ref: 'User'},
-    date: {type: Date, default: Date.now() }
+    date: {type: Date, default: Date.now()},
+    pathImage:{type: String}
 });
 
 const Profile = mongoose.model('Profile', profileSchema);
