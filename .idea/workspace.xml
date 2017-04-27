@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="280306d9-ed72-4c6b-9064-37a27eeec051" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about/aboutUs.hbs" afterPath="$PROJECT_DIR$/views/about/aboutUs.hbs" />
-    </list>
+    <list default="true" id="280306d9-ed72-4c6b-9064-37a27eeec051" name="Default" comment="" />
     <ignored path="SoftUniBlog.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -53,7 +51,7 @@
       <file leaf-file-name="aboutUs.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/about/aboutUs.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="528">
               <caret line="203" column="107" lean-forward="false" selection-start-line="203" selection-start-column="107" selection-end-line="203" selection-end-column="107" />
               <folding />
             </state>
@@ -747,12 +745,12 @@
       <workItem from="1493132862414" duration="6073000" />
       <workItem from="1493140317642" duration="1379000" />
       <workItem from="1493149712108" duration="2213000" />
-      <workItem from="1493226116772" duration="8993000" />
+      <workItem from="1493226116772" duration="9589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330387000" />
+    <option name="totallyTimeSpent" value="330983000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -764,7 +762,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="766" extended-state="0" />
+    <frame x="1" y="1" width="1364" height="766" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15402125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1223,7 +1221,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/about/aboutUs.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="528">
           <caret line="203" column="107" lean-forward="false" selection-start-line="203" selection-start-column="107" selection-end-line="203" selection-end-column="107" />
           <folding />
         </state>
