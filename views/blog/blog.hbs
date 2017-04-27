@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Junior developers</title>
+
+    <link rel="stylesheet" href='/stylesheets/listings.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>Junior developers listings</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-	<script src="/javascripts/moment.min.js"></script>
 </head>
 <body>
 <header>
@@ -67,34 +71,39 @@
 {{#if error }}
     <h2>{{error}}</h2>
 {{/if}}<div id="blogcontent">
-    <div class="row">
-        {{#each articles}}
-            <div class="col-md-6">
-                <article>
-                    <header id="blogtitle">
-                        <h2>{{this.title}}</h2>
-                    </header>
+    <div id="ideas">
+        <div class="row">
+            {{#each articles}}
+                <div class="w3-panel w3-grey w3-topbar w3-bottombar w3-border-amber w3-round-large">
+                    <div class="col-md-6">
+                        <article>
+                            <small class="title" id="title">
+                                <br><br>
+                                <h2 class="postDate">{{this.title}}</h2>
+                            </small>
 
-                    <p>{{this.content}}
-                    </p>
+                                <p>{{this.content}}</p>
 
-                    <small class="author">
-                        {{this.author.fullName}}
-                    </small>
-
-                    <footer>
-                        <div class="pull-right">
-                            <a class="btn btn-default btn-xs"
-                               href="/article/details/{{this.id}}">Read more &raquo;</a>
-                        </div>
-                    </footer>
-                </article>
-            </div>
-        {{/each}}
+                            <small class="author" id="author">
+                                <h4>{{this.author.fullName}}</h4>
+                            </small>
+                            <br/>
+                            <div class="fl_right" class="w3-panel w3-round-large w3-teal">
+                                <a href="/article/details/{{this.id}}" class="w3-btn w3-blue w3-round-large">Read more</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <script>
+                    let date = $('.postDate').text();
+                    let formattedDate = moment(date).format('LLLL');
+                    $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
+                </script>
+            {{/each}}
+        </div>
     </div>
-</div>
-</body>
-<footer>
+
+    <footer>
     <div class="container modal-footer">
         <p>&copy; 2017 - Software University Foundation</p>
         <script>
@@ -118,3 +127,7 @@
     </div>
 </footer>
 </html>
+
+
+
+

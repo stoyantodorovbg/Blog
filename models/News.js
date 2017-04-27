@@ -10,7 +10,7 @@ let newsSchema = mongoose.Schema({
     author: {type: String, required: true},
     source: {type: String, required: false},
     date: {type: String, default: dateString},
-    pathImage: [{type: String}],
+    pathImage: [{type: String, required: true}],
 });
 
 const News = mongoose.model('News', newsSchema);

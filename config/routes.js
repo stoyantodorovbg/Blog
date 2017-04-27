@@ -9,8 +9,8 @@ const newsController = require('./../controllers/news');
 
 module.exports = (app) => {
     app.get('/profile/profile', profileController.profileGet);
-    app.get('/editProfile/:id', profileController.profileEditGet);
-    app.post('/profile/profile/:id', profileController.profileEditPost);
+    app.get('/editProfile', profileController.profileEditGet);
+    app.post('/profile/profile', profileController.profileEditPost);
 
 
     app.get('/', homeController.welcome);

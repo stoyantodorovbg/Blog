@@ -6,12 +6,9 @@ module.exports = {
     profileGet: (req, res) => {
         let userId = req.user.id;
 
-        //console.log(req);
         Profile.findOne({'user': userId}).populate('user').then(profile => {
                 res.render('profile/profile', profile);
-            console.log(req.body);
         });
-        //console.log(req);
     },
     profileEditGet: (req, res) => {
         let id = req.params.id;
@@ -19,10 +16,6 @@ module.exports = {
 
         Profile.findOne({'user': userId}).populate('user').then(profile => {
                 res.render('profile/editProfile', profile);
-                console.log(req.body);
-
-        // Profile.findById(id).populate('user').then(profile => {
-        //         res.render('profile/editProfile', req.user);
         });
     },
     profileEditPost: (req, res) => {
