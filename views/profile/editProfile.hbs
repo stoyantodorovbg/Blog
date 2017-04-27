@@ -38,12 +38,59 @@
                                 <h6>Welcome {{user.fullName}}</h6>
                             </div>
                             <br/><br/>
-                        {{/if}}
                     </div>
                 </div>
 
                 <div class="w3-container w3-round-large">
-                    <form class="form w3-round-large" method="POST" action="/profile/profile/{{id}}">
+                    <form class="form w3-round-large" method="POST" action="/profile/profile">
+                        <p>
+                            <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                            <input class="profession w3-round-large" type="text" name="profession" placeholder="{{this.profession}}">
+
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                            <input class="name w3-round-large" type="email" name="email" placeholder="{{user.email}}">
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>GitHub
+                            <input class="name w3-round-large" type="url" name="github" placeholder="GitHub">
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                            <br>
+                            <input class="name w3-round-large" type="tel" name="tel" placeholder="{{this.tel}}">
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                            <input class="name w3-round-large" type="text" name="country" placeholder="{{this.country}}">
+                        </p>
+                        <br>
+                        <p>
+                            <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                            <input class="name w3-round-large" type="text" name="town" placeholder="{{this.town}}">
+                        </p>
+                        <br>
+                        <p>
+                            <i class=" fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>
+                            <br><br>
+                            <input class="name w3-round-large" type="number" name="age" placeholder="{{this.age}}">
+                        </p>
+                        {{/if}}
+                        {{#unless user}}
+                            <div class="w3-container w3-teal w3-round-large">
+                                <h6>Welcome {{user.fullName}}</h6>
+                            </div>
+                            <br/><br/>
+                    </div>
+                </div>
+
+                <div class="w3-container w3-round-large">
+                    <form class="form w3-round-large" method="POST" action="/profile/profile">
                         <p>
                             <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession
                             <input class="profession w3-round-large" type="text" name="profession" placeholder="Profession">
@@ -81,6 +128,7 @@
                             <br><br>
                             <input class="name w3-round-large" type="number" name="age" placeholder="Age">
                         </p>
+                        {{/unless}}
                         <br>
                         <p>
                             <i class="fa-fw w3-margin-right w3-large w3-text-teal w3-round-large"></i>Gender
@@ -90,30 +138,9 @@
                             <input class="name w3-round-large" type="radio" name="sex" value="woman" placeholder="Sex"> woman
                         </p>
                         <hr>
-
-                        <p class="w3-large w3-round-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-
-                        <input class="name w3-round-large" type="text" name="name" placeholder="Skills:">
-                        <br><br>
-
-                        <input class="name w3-round-large" type="number" name="name" placeholder="Percent of handling">
-                        <br><br>
-                        <div>
-                            <button class="w3-padding-8 w3-round-large"><i class="fa-fw w3-margin-right"></i>><b>Enter this skill</b></></button>
-                        </div>
-                        <br><br>
-
-                        <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-
-                        <input class="name w3-round-large" type="number" name="name" placeholder="Percent of handling">
-                        <br><br>
-                        <div>
-                            <button class="w3-padding-8 w3-round-large"><i class="fa-fw w3-margin-right"></i><b>Enter this skill</b></button>
-                        </div>
                         <br><br>
                         <br><br>
                         <br>
-
                 </div>
             </div><br>
 
@@ -138,7 +165,7 @@
         </div>
 
 
-        <button type="submit" class="btn btn-success">Edit</button>
+        <button type="submit" href="profile/profile" class="btn btn-success">Edit</button>
 
 
         <!-- End Grid -->
