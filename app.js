@@ -2,7 +2,7 @@ const express = require('express');
 const config = require('./config/config');
 const app = express();
 
- app.listen(3010);
+ app.listen(3100);
 
 let env = 'development';
 require('./config/database')(config[env]);
