@@ -13,7 +13,7 @@ module.exports = {
     detailsGet: (req, res) => {
         let id = req.params.id;
 
-        User.findById(id).populate('profile').then(user => {
+        User.findById(id).populate('profiles').then(user => {
 
             res.render('Users/details', {user: user});
 

@@ -27,21 +27,15 @@
                             <h3>{{this.email}}</h3>
                         </small>
                         <div class="fl_right" class="w3-panel w3-round-large w3-teal">
-                            <a href="/listings/details/{{this.id}}" class="w3-btn w3-blue w3-round-large">Read more</a>
+                            <a href="/Users/details/{{this.id}}" class="w3-btn w3-blue w3-round-large">Read more</a>
                         </div>
                     </listings>
                 </div>
             </div>
-            <script>
-                let date = $('.postDate').text();
-                let formattedDate = moment(date).format('LLLL');
-                $('.postDate').html(`Posted on <em>${formattedDate}</em>`)
-            </script>
         {{/each}}
     </div>
 </div>
 <div  class="w3-round-large">
-    <a href="/listingInput" class="w3-btn w3-blue w3-round-large">Publish your listing here</a>
     <a href="/contactUs" class="w3-btn w3-black w3-round-large">Contact us!</a>
 </div>
 
