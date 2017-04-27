@@ -21,32 +21,17 @@ module.exports = {
     profileEditPost: (req, res) => {
         let profileParts = req.body;
 
-        let profiles = [];
-        Profile.create(profileParts).then(profile => {
-            profiles.push(profile.id);
-            profile.save();
-        });
-
-        let errorMsg = '';
-
-        if (!req.isAuthenticated()) {
-            errorMsg = 'You should be logged in to make articles!';
-        }
-        if (errorMsg) {
-            res.render('profile/editProfile', {error: errorMsg});
-            return;
-        }
         let userId = req.user.id;
         profileParts.user = userId;
-        Profile.create(profileParts).then(profile => {
-            req.user.profiles.push(profile.id);
-            req.user.save(err => {
-                if (err) {
-                    res.render('profile/editProfile', {error: err.message});
-                } else {
+
+        Profile.create(profileParts);
+
+        Profile.findOne({'user': userId}).update({profession: profileParts.profession, github: profileParts.github,
+           email: profileParts.email, tel: profileParts.tel, country: profileParts.country,
+           town: profileParts.town, age: profileParts.age, sex: profileParts.sex, workExperience: profileParts.workExperience,
+           education: profileParts.education}).then(updateStatus => {
+
                     res.redirect('/profile/profile');
-                }
             });
-        })
     }
 };
