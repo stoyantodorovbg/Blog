@@ -50,7 +50,13 @@
             </fieldset>
 
         </form>
+
     </div>
+    <div class="col-sm-8 col-sm-offset-8">
+    {{#if isUserAuthorized}}
+                   <button><a href="about/messages/{{user.id}}" class="w3-btn w3-blue-grey w3-round-large">Show all messages</a></button>
+            {{/if}}
+            </div>
 </div>
 <!--</body>-->
 <!--</html>-->

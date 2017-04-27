@@ -1,17 +1,41 @@
+
+
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>SoftUni Blog</title>
+
+    <link rel="stylesheet" href='/stylesheets/listings.css'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <title>Junior developers listings</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-
 </head>
+<div id="ideas">
+    <div class="row">
+        {{#each users}}
+            <div class="w3-panel w3-grey w3-topbar w3-bottombar w3-border-amber w3-round-large">
+                <div class="col-md-6">
+                    <listings>
+                        <small class="name">
+                            <br><br>
+                            <h2 class="name">{{this.fullName}}</h2>
+                        </small>
+                        <small class="position">
+                            <h3>{{this.email}}</h3>
+                        </small>
+                        <div class="fl_right" class="w3-panel w3-round-large w3-teal">
+                            <a href="/Users/details/{{this.id}}" class="w3-btn w3-blue w3-round-large">Read more</a>
+                        </div>
+                    </listings>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<div  class="w3-round-large">
+    <a href="/contactUs" class="w3-btn w3-black w3-round-large">Contact us!</a>
+</div>
 
-{{#each users}}
-    {{this.fullName}}
-    {{this.email}}
-{{/each}}
-            </body>
-
-</html>

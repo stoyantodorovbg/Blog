@@ -30,6 +30,7 @@ module.exports = (app) => {
     app.post('/listings/delete/:id', listingController.deletePost);
 
     app.get('/Users', UsersController.usersGet);
+    app.get('/Users/details/:id', UsersController.detailsGet);
 
 
     app.get('/aboutUs', homeController.aboutUs);
