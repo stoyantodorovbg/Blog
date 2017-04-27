@@ -16,26 +16,51 @@
         <div class="w3-panel w3-grey w3-topbar w3-bottombar w3-border-amber w3-round-large">
             <div class="col-md-6">
                 <listings>
+                    <small class="name">
+                        <br><br>
+                        <h1 class="name">name: {{profile.user.fullName}}</h1>
+                    </small>
+                    <small class="profession">
+                        <br><br>
+                        <h2 class="profession">profession: {{profile.profession}}</h2>
+                    </small>
+                    <small class="github">
+                        <br><br>
+                        <h4 class="github">github: {{profile.github}}</h4>
+                    </small>
+                    <small class="email">
+                        <br><br>
+                        <h4 class="email">email: {{profile.email}}</h4>
+                    </small>
+                    <small class="tel">
+                        <br><br>
+                        <h4 class="tel">tel: {{profile.tel}}</h4>
+                    </small>
                     <small class="country">
                         <br><br>
-                        <p class="country">country: {{user.profile.country}}</p>
+                        <h4 class="country">country: {{profile.country}}</h4>
                     </small>
-                    <small class="position">
-                        <h4>{{user.email}}</h4>
+                    <small class="town">
+                        <br><br>
+                        <h4 class="town">town: {{profile.town}}</h4>
                     </small>
-                    <small class="author">
-                        <h3>{{listing.author}}</h3>
+                    <small class="age">
+                        <br><br>
+                        <h4 class="age">age: {{profile.age}}</h4>
                     </small>
-                    <p>{{listing.content}}
-                    </p>
+                    <small class="sex">
+                        <br><br>
+                        <h4 class="sex">gender: {{profile.sex}}</h4>
+                    </small>
+                    <small class="workExperience">
+                        <br><br>
+                        <h4 class="workExperience">workExperience: {{profile.workExperience}}</h4>
+                    </small>
+                    <small class="education">
+                        <br><br>
+                        <h4 class="education">education: {{profile.education}}</h4>
+                    </small>
 
-                    <small class="email">
-                        email: {{listing.email}}
-                    </small>
-                    <br>
-                    <small class="phone">
-                        phone: {{user.profile.phone}}
-                    </small>
 
                 </listings>
             </div>

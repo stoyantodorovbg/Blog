@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('mongoose').model('User');
-const Profile = require('mongoose').model('Profile')
+const Profile = require('mongoose').model('Profile');
 
 module.exports = {
     profileGet: (req, res) => {
