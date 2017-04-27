@@ -1,6 +1,18 @@
 const News = require('mongoose').model('News');
 
+function addImages(image, imageArray) {
+    let filename = image.name;
+    image.mv(`./public/pictures/${filename}`, err => {
+        if (err) {
+            console.log(err.message);
+        }
+    });
+
+    imageArray.push(`/pictures/${image.name}`);
+};
+
 module.exports = {
+
 
     createGet: (req, res) => {
         res.render('news/create');
@@ -46,26 +58,22 @@ module.exports = {
             return;
         }
 
-      ///Insert, save in base and set multiply image file
-      //let images = req.files.images;
+        // Insert, save in base and set multiply image files
+        let images = req.files.images;
+        let imageArray = [];
 
-      //if (images) {
-      //    for (let image of images) {//
-      //        let filename = image.name;
-      //        image.mv(`./public/pictures/${filename}`, err => {
-      //            if (err) {
-      //                console.log(err.message);
-      //            }
-      //        });
-      //    }
+        if (images) {
+            if(images.length > 1) {
+                for (let image of images) {
+                    addImages(image, imageArray);
+                }
+            } else {
+                let image = images;
+                addImages(image, imageArray);
+            }
+        }
 
-      //    let imageArray = [];
-      //    for (let image of images) {
-      //        imageArray.push(`/pictures/${image.name}`);
-      //    }
-
-      //    newsParts.pathImage = imageArray;
-      //}
+        newsParts.pathImage = imageArray;
 
         let news = [];
         News.create(newsParts).then(newsStory => {

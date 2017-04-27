@@ -6,10 +6,27 @@ const session = require('express-session');
 const passport = require('passport');
 const fileUpload = require('express-fileupload');
 
+
 module.exports = (app, config) => {
     // View engine setup.
     app.set('views', path.join(config.rootFolder, '/views'));
     app.set('view engine', 'hbs');
+
+    var handlebars = require('hbs');
+    handlebars.registerHelper('grouped_each', function(every, context, options) {
+        var out = "", subcontext = [], i;
+        if (context && context.length > 0) {
+            for (i = 0; i < context.length; i++) {
+                if (i > 0 && i % every === 0) {
+                    out += options.fn(subcontext);
+                    subcontext = [];
+                }
+                subcontext.push(context[i]);
+            }
+            out += options.fn(subcontext);
+        }
+        return out;
+    });
 
     // This set up which is the parser for the request's data.
     app.use(bodyParser.json());

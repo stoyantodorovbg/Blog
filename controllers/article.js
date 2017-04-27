@@ -11,6 +11,26 @@ function addImages(image, imageArray) {
     imageArray.push(`/pictures/${image.name}`);
 }
 
+function formatDate(date) {
+    let monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+    ];
+
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let month =date.getMonth();
+    let year = date.getFullYear();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+
+    //return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    return year + '-' + ("0" + (month+1)).slice(-2) + '-' + ("0" + day).slice(-2) + ' ' + ("0" + hour).slice(-2) + ':' + ("0" + minute).slice(-2) + ':' + ("0" + second).slice(-2);
+}
+
 module.exports = {
     createGet: (req, res) => {
         res.render('article/create');
@@ -67,6 +87,10 @@ module.exports = {
         let userId = req.user.id;
         articleParts.author = userId;
         articleParts.date = new Date();
+
+        let dateNow = new Date();
+        let dateToString = formatDate(dateNow);
+        articleParts.dateLocal = dateToString;
 
         Article.create(articleParts).then(article => {
             req.user.articles.push(article.id);
@@ -238,6 +262,6 @@ module.exports = {
 
                     article.save();
             });
-        res.redirect(`/article/details/${id}`);
+        res.redirect(`/article/edit/${id}`);
     }
 };
