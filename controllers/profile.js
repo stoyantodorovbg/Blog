@@ -25,8 +25,8 @@ module.exports = {
         profileParts.user = userId;
 
         Profile.create(profileParts);
-        
-        Profile.update({profession: profileParts.profession, github: profileParts.github,
+
+        Profile.findOne({'user': userId}).update({profession: profileParts.profession, github: profileParts.github,
            email: profileParts.email, tel: profileParts.tel, country: profileParts.country,
            town: profileParts.town, age: profileParts.age, sex: profileParts.sex, workExperience: profileParts.workExperience,
            education: profileParts.education}).then(updateStatus => {
